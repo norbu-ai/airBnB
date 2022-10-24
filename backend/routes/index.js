@@ -3,6 +3,10 @@
 const express = require('express'); 
 const router = express.Router(); 
 
+// all of the URLs of the routes in the 'apiRouter' will be prefixed with /api
+const apiRouter = require('./api'); 
+router.use('/api', apiRouter); 
+
 
 /* test endpoint: 
 In this test route, you are setting a cookie on the response with the name of 
@@ -32,6 +36,14 @@ router.get("/api/csrf/restore", (req, res) => {
         'XSRF-Token': csrfToken
     }); 
 }); 
+
+
+
+
+
+
+
+
 
 
 
