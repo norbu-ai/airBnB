@@ -3,7 +3,8 @@ const router = require('express').Router();
 
 
 
-
+const { restoreUser } = require('../../utils/auth.js'); 
+router.use(restoreUser); 
 
 
 
@@ -25,6 +26,37 @@ fetch('/api/test', {
     body: JSON.stringify({ test: "success hitting api test route"})
 }).then(res => res.json()).then(data => console.log(data)); 
 */
+
+
+/* test 'setTokenCookie' middleware in auth.js file 
+   endpoint: GET /api/set-token-cookie 
+*/
+const { setTokenCookie } = require('../../utils/auth.js'); 
+const { User } = require('../../db/models'); 
+router.get('/set-token-cookie', async(_req, res) => {
+    const user = await User.findOne({
+        where: {
+            username: 'Demo-lition'
+        }
+    }); 
+    setTokenCookie(res, user); 
+    return res.json({ user }); 
+}); 
+
+
+// check whether or not the req.user key has been populated by the middleware 
+router.get('/restore-user', (req, res) => {
+    return res.json(req.user)
+}); 
+
+
+/* requireAuth middleware: if there is no session user, route returns error, 
+    otherwise returns session user's info
+*/
+const { requireAuth } = require('../../utils/auth.js'); 
+router.get('/require-auth', requireAuth, (req, res) => {
+    return res.json(req.user); 
+}); 
 
 
 

@@ -4,9 +4,9 @@ const bcrypt = require('bcryptjs');
 
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    // all User instance methods below 
+    // all User model instance methods below 
 
-    // return an object with only the User instance info safe to save to a JWT i.e. id, username, email
+    // return an object with only the User instance-infos safe to be saved to a JWT i.e. id, username, email
     toSafeObject(){
       const { id, username, email } = this; // context: User instance 
       return { id, username, email }; 
