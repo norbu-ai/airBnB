@@ -1,12 +1,17 @@
 
 const router = require('express').Router(); 
-
-
-
+const sessionRouter = require('./session.js'); 
+const usersRouter = require('./users.js'); 
 const { restoreUser } = require('../../utils/auth.js'); 
-router.use(restoreUser); 
 
-
+/* 
+    connect restorUser middleware to the API router
+    if current user session valid, set req.user to user in db
+    if current user session !valid, set req.user to 'null'
+*/
+router.use(restoreUser);  
+router.use('/session', sessionRouter); 
+router.use('users', usersRouter); 
 
 
 // api test route added to the router 
