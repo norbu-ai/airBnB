@@ -8,7 +8,7 @@ const { User } = require('../../db/models');
 const router = express.Router(); 
 
 
-/* login:
+/* Log in:
 add the POST /api/session route to the router using an asynchronous route handler. 
 In the route handler, call the login static method from the User model. If there 
 is a user returned from the login static method, then call setTokenCookie and return 
@@ -52,6 +52,23 @@ router.post('/', async(req, res, next) => {
     }).then(res => res.json()).then(data => console.log(data));
 */
 
+
+
+// Logout: remove the token cookie from the response and return a JSON success msg
+router.delete('/', (_req, res) => {
+    res.clearCookie('token'); 
+    return res.json({ message: 'success' })
+}); 
+
+/* test logout 
+    fetch('/api/session', {
+    method: 'DELETE',
+    headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+    }
+    }).then(res => res.json()).then(data => console.log(data));
+*/
 
 
 
