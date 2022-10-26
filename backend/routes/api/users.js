@@ -4,7 +4,6 @@ const { User } = require('../../db/models');
 const { Op } = require('sequelize'); 
 const { check } = require('express-validator'); 
 const { handleValidationErrors } = require('../../utils/validation'); 
-
 const router = express.Router(); 
 
 /* validateSignup middleware: check & validate req.body for signup: 
@@ -15,7 +14,7 @@ of 6. If at least one of the req.body values fail the check, an error will be re
 */
 const validateSignup = [
     check('email').exists({checkFalsy: true}).isEmail().withMessage('Invalid email'), 
-    check('username').exists({checkFalsy: true}).isLength({min:4}).isEmail().withMessage('Please provide a username with at least 4 characters.'), 
+    check('username').exists({checkFalsy: true}).isLength({min:4}).withMessage('Please provide a username with at least 4 characters.'), 
     check('username').not().isEmail().withMessage('Username cannot be an email.'), 
     check('username').notEmpty().withMessage('Username is required'), 
     check('password').exists({checkFalsy: true}).isLength({min:6}).withMessage('Password must be 6 characters or more.'), 
