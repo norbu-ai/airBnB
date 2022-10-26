@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
 
     // return an object with only the User instance-infos safe to be saved to a JWT i.e. id, username, email
     toSafeObject(){
-      const { id, username, email } = this; // context: User instance 
-      return { id, username, email }; 
+      const { id, username, email, firstName, lastName} = this; // context: User instance 
+      return { id, username, email, firstName, lastName }; 
     }; 
 
     // return boolean indicating a match between input password to User instance's hashedPassword
@@ -42,12 +42,14 @@ module.exports = (sequelize, DataTypes) => {
     // method accept object {username, email, password}
     // create a User instance with { username, email, hashedPassword}
     // return create 'user' applying 'currentUser' scope to the model instance 
-    static async signup({ username, email, password }) {
+    static async signup({ username, email, password, firstName, lastName }) {
       const hashedPassword = bcrypt.hashSync(password); 
       const user = await User.create({
         username, 
         email, 
-        hashedPassword
+        hashedPassword, 
+        firstName, 
+        lastName
       }); 
       return await User.scope('currentUser').findByPk(user.id); 
     }
@@ -68,6 +70,20 @@ module.exports = (sequelize, DataTypes) => {
             throw new Error("Cannot be an email."); 
           }
         }
+      }
+    }, 
+    firstName: {
+      type: DataTypes.STRING, 
+      allowNull: false, 
+      validate: {
+        len: [1, 30]
+      }
+    }, 
+    lastName: {
+      type: DataTypes.STRING, 
+      allowNull: false, 
+      validate: {
+        len: [1, 30]
       }
     }, 
     email: {

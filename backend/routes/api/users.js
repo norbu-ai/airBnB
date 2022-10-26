@@ -20,6 +20,8 @@ const validateSignup = [
     check('username').exists({checkFalsy: true}).isLength({min:4}).withMessage('Please provide a username with at least 4 characters.'), 
     check('username').not().isEmail().withMessage('Username cannot be an email.'), 
     check('password').exists({checkFalsy: true}).isLength({min:6}).withMessage('Password must be 6 characters or more.'), 
+    check('firstName').exists({checkFalsy: true}).notEmpty().withMessage('First name is required'), 
+    check('lastName').exists({checkFalsy: true}).notEmpty().withMessage('Last name is required'), 
     handleValidationErrors
 ]; 
 
@@ -31,8 +33,8 @@ the user information. If the creation of the user is unsuccessful, then a Sequel
 Validation error will be passed onto the next error-handling middleware.
 */
 router.post('/', validateSignup, async(req, res) => {
-    const { email, password, username } = req.body; 
-    const user = await User.signup({ email, username, password }); 
+    const { email, password, username, firstName, lastName } = req.body; 
+    const user = await User.signup({ email, username, password, firstName, lastName }); 
     await setTokenCookie(res, user); 
     return res.json({ user }); 
 }); 
