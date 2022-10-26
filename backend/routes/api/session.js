@@ -11,11 +11,33 @@ const router = express.Router();
 
 // validateLogin middleware: 
 // use both check & handleValidationErrors middleware to validate req.body
+// const validateLogin = [
+//     check('credential').exists({ checkFalsy: true }).notEmpty().withMessage('Please provide a valid email or username.'), 
+//     check('password').exists({ checkFalsy: true }).withMessage('Please provide a password.'), 
+//     handleValidationErrors
+// ]; 
+// logan solution 
 const validateLogin = [
-    check('credential').exists({ checkFalsy: true }).notEmpty().withMessage('Please provide a valid email or username.'), 
-    check('password').exists({ checkFalsy: true }).withMessage('Please provide a password.'), 
+    check('credential')
+        .custom(credential => {
+            if(typeof credential !== 'string'){
+                throw new Error('Invalid credential')
+            }
+            return true;
+        })
+        .notEmpty()
+        .withMessage('Email or username is required'),
+    check('password')
+        .custom(password => {
+            if(typeof password !== 'string'){
+                throw new Error('Invalid password')
+            }
+            return true;
+        })
+        .notEmpty()
+        .withMessage('Password is required'),
     handleValidationErrors
-]; 
+];
 
 
 /* Get session User API route: 
@@ -27,10 +49,8 @@ to get the session user, connect the restoreUser middleware.
 router.get('/', restoreUser, (req, res) => {
     const { user } = req; 
     if(user) {
-        return res.json({
-            user: user.toSafeObject()
-        }); 
-    } else return res.json({ })
+        return res.json(user.toSafeObject()); 
+    } else return res.json(null)
 }); 
 
 
@@ -46,14 +66,16 @@ router.post('/', validateLogin, async(req, res, next) => {
     const { credential, password } = req.body; 
     const user = await User.login({ credential, password }); 
     if (!user){
-        const err = new Error('Login failed'); 
-        err.status = 401; 
-        err.title = 'Login failed'; 
-        err.errors = ['The provided credentials were invalid.']; 
-        return next(err); 
+        res.status(401);
+        return res.json({
+            message: "Invalid credentials", 
+            statusCode: 401
+        })
     }
-    await setTokenCookie(res, user); 
-    return res.json({ user }); 
+    const token = await setTokenCookie(res, user); 
+    userObj = user.toJSON(); //so we can manipulate the user object
+    userObj.token = token; 
+    return res.json(userObj); 
 }); 
 
 /* test login using 'username' credential 

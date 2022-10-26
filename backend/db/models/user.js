@@ -106,14 +106,14 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'User',
     defaultScope: {
       attributes: {
-        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt']
+        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt', 'firstName', 'lastName']
       }
     }, 
     scopes: {
       // define a User model scope for currentUser that will exclude only the hashedPassword field
       currentUser: {
         attributes: {
-          exclude: ['hashedPassword']
+          exclude: ['hashedPassword', 'createdAt', 'updatedAt']
         }
       }, 
       // define another scope for including all the fields, which should only be used when checking the login credentials of a user.
