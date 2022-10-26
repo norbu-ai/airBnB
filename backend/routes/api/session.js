@@ -4,8 +4,18 @@ const express = require('express');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth'); 
 const { User } = require('../../db/models'); 
+const { check } = require('express-validator'); 
+const { handleValidationErrors } = require('../../utils/validation'); 
 
 const router = express.Router(); 
+
+// validateLogin middleware: 
+// use both check & handleValidationErrors middleware to validate req.body
+const validateLogin = [
+    check('credential').exists({ checkFalsy: true }).notEmpty().withMessage('Please provide a valid email or username.'), 
+    check('password').exists({ checkFalsy: true }).withMessage('Please provide a password.'), 
+    handleValidationErrors
+]; 
 
 
 /* Get session User API route: 
@@ -32,7 +42,7 @@ a JSON response with the user information. If there is no user returned from the
 static method, then create a "Login failed" error and invoke the next error-handling 
 middleware with it.
 */
-router.post('/', async(req, res, next) => {
+router.post('/', validateLogin, async(req, res, next) => {
     const { credential, password } = req.body; 
     const user = await User.login({ credential, password }); 
     if (!user){
@@ -65,6 +75,28 @@ router.post('/', async(req, res, next) => {
         "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
     },
     body: JSON.stringify({ credential: 'demo@user.io', password: 'password' })
+    }).then(res => res.json()).then(data => console.log(data));
+*/
+
+/* test if validateLogin middleware checks for empty credential 
+    fetch('/api/session', {
+    method: 'POST',
+    headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+    },
+    body: JSON.stringify({ credential: '', password: 'password' })
+    }).then(res => res.json()).then(data => console.log(data));
+*/
+
+/* test if validateLogin middleware checks for empty password 
+    fetch('/api/session', {
+    method: 'POST',
+    headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": `<value of XSRF-TOKEN cookie>`
+    },
+    body: JSON.stringify({ credential: 'Demo-lition', password: '' })
     }).then(res => res.json()).then(data => console.log(data));
 */
 

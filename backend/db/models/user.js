@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     }
 
     // search for User with passed 'credential' & 'password', if found, validate 'password'
-    // credential: username or email
+    // credential: username or email either would be allowed 
     static async login({ credential, password }){
       const { Op } = require('sequelize'); 
       const user = await User.scope('loginUser').findOne({
