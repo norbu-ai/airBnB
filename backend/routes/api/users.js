@@ -1,7 +1,4 @@
-
-
 const express = require('express'); 
-
 const { setTokenCookie, requireAuth } = require('../../utils/auth'); 
 const { User } = require('../../db/models'); 
 const { Op } = require('sequelize'); 
@@ -109,6 +106,10 @@ router.post('/', validateSignup, async(req, res) => {
 */
 
 
+router.get('/', async(req, res) => {
+    const users = await User.findAll(); 
+    return res.json({ users })
+})
 
 
 
