@@ -8,6 +8,22 @@ const { User } = require('../../db/models');
 const router = express.Router(); 
 
 
+/* Get session User API route: 
+return the session user info as JSON under the key of user if you have a token cookie,
+if there is not a session or token cookie, JSON with an empty object is returned. 
+to get the session user, connect the restoreUser middleware.
+*/
+// restore session user 
+router.get('/', restoreUser, (req, res) => {
+    const { user } = req; 
+    if(user) {
+        return res.json({
+            user: user.toSafeObject()
+        }); 
+    } else return res.json({ })
+}); 
+
+
 /* Log in:
 add the POST /api/session route to the router using an asynchronous route handler. 
 In the route handler, call the login static method from the User model. If there 
