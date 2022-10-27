@@ -2,25 +2,25 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('SpotImages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(30), 
+      spotId: {
+        type: Sequelize.INTEGER, 
         allowNull: false, 
-        unique: true
+        references: {model: 'Spots', key: 'id'}, 
+        onDelete: 'CASCADE'
       },
-      email: {
-        type: Sequelize.STRING(256), 
-        allowNull: false, 
-        unique: true
+      url: {
+        type: Sequelize.STRING, 
+        allowNull: false
       },
-      hashedPassword: {
-        type: Sequelize.STRING.BINARY, 
+      preview: {
+        type: Sequelize.BOOLEAN, 
         allowNull: false 
       },
       createdAt: {
@@ -36,6 +36,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('SpotImages');
   }
 };

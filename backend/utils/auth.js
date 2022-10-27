@@ -83,13 +83,18 @@ accessing a route; requireAuth will be connected directly to routehandlers where
 there needs to be a current user logged in for the actions in those routehandlers
 */
 // if there is no current user, return an error 
-const requireAuth = function(req, _res, next) {
+const requireAuth = function(req, res, next) {
     if (req.user) return next(); 
-    const err = new Error('Unauthorized'); 
-    err.title = 'Unauthorized'; 
-    err.errors = ['Unauthorized']; 
-    err.status = 401; 
-    return next(err); 
+    res.status(401); 
+    return res.json({
+        message: "Authentication required", 
+        statusCode: 401
+    })
+    // const err = new Error('Unauthorized'); 
+    // err.title = 'Unauthorized'; 
+    // err.errors = ['Unauthorized']; 
+    // err.status = 401; 
+    // return next(err); 
 }; 
 
 

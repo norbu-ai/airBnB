@@ -2,26 +2,23 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('ReviewImages', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(30), 
+      reviewId: {
+        type: Sequelize.INTEGER, 
         allowNull: false, 
-        unique: true
+        references: {model: 'Reviews', key: 'id'}, 
+        // on delete of a reviewImage, cascadingly, reviews associated with the reviewImage will be deleted
+        onDelete: 'CASCADE'
       },
-      email: {
-        type: Sequelize.STRING(256), 
-        allowNull: false, 
-        unique: true
-      },
-      hashedPassword: {
-        type: Sequelize.STRING.BINARY, 
-        allowNull: false 
+      url: {
+        type: Sequelize.STRING, 
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -36,6 +33,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('ReviewImages');
   }
 };
