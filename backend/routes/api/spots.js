@@ -11,7 +11,7 @@ const { handleValidationErrors } = require('../../utils/validation')
 
 // get all spots 
 
-router.get('/', async())
+// router.get('/', async())
 
 
 
