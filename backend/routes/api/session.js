@@ -1,43 +1,11 @@
 
-
 const express = require('express'); 
+const router = express.Router(); 
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth'); 
 const { User } = require('../../db/models'); 
-const { check } = require('express-validator'); 
-const { handleValidationErrors } = require('../../utils/validation'); 
+const { validateLogin } = require('../../utils/inputValidators')
 
-const router = express.Router(); 
-
-// validateLogin middleware: 
-// use both check & handleValidationErrors middleware to validate req.body
-// const validateLogin = [
-//     check('credential').exists({ checkFalsy: true }).notEmpty().withMessage('Please provide a valid email or username.'), 
-//     check('password').exists({ checkFalsy: true }).withMessage('Please provide a password.'), 
-//     handleValidationErrors
-// ]; 
-// logan solution 
-const validateLogin = [
-    check('credential')
-        .custom(credential => {
-            if(typeof credential !== 'string'){
-                throw new Error('Invalid credential')
-            }
-            return true;
-        })
-        .notEmpty()
-        .withMessage('Email or username is required'),
-    check('password')
-        .custom(password => {
-            if(typeof password !== 'string'){
-                throw new Error('Invalid password')
-            }
-            return true;
-        })
-        .notEmpty()
-        .withMessage('Password is required'),
-    handleValidationErrors
-];
 
 
 /* Get session User API route: 
