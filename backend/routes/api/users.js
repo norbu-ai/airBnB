@@ -43,7 +43,7 @@ router.post('/', validateSignup, async(req, res) => {
     if (user1 && (user1.username === username)){
         res.status(403); 
         res.json({
-            message: "user already exists", 
+            message: "User already exists", 
             statusCode: 403, 
             errors: {
                 username: "User with that username already exists"

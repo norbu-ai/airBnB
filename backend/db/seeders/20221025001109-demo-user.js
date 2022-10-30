@@ -1,7 +1,7 @@
 'use strict';
 const bcrypt = require('bcryptjs'); 
 
-const usersData = [
+const UsersData = [
   {
     email: 'demo@user.io', 
     username: 'Demo-lition', 
@@ -76,26 +76,11 @@ const usersData = [
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-   await queryInterface.bulkInsert('Users', usersData)
+   await queryInterface.bulkInsert('Users', UsersData, {})
   },
 
   async down (queryInterface, Sequelize) {
-    const Op = Sequelize.Op; 
-    await queryInterface.bulkDelete('Users', {
-      username: {
-        [Op.in]: [
-          'Demo-lition', 
-          'FakeUser2', 
-          'FakeUser3',
-          'FakeUser4',
-          'FakeUser5',
-          'FakeUser6',
-          'FakeUser7',
-          'FakeUser8',
-          'FakeUser9', 
-          'FakeUser10'
-        ]
-      }
-    })
+    // const Op = Sequelize.Op; 
+    await queryInterface.bulkDelete('Users', null, {})
   }
 };

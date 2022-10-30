@@ -160,10 +160,8 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('SpotImages', {
-      spotId: {
-        [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      }
-    })
+    // const Op = Sequelize.Op; 
+    await queryInterface.bulkDelete('SpotImages', null, {})
+    // {spotId: {[Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}
   }
 };
