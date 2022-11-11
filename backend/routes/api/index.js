@@ -24,6 +24,12 @@ router.use('/review-images', reviewImagesRouter);
 router.use('/bookings', bookingsRouter); 
 
 
+/* try this in frontend dev tools console to test this POST /api/test test route
+window.csrfFetch('/api/test', {
+    method: 'POST',
+    body: JSON.stringify({ credential: 'Demo-lition', password: 'password' })
+}).then(res => res.json()).then(data => console.log(data));
+*/
 // api test route added to the router 
 router.post('/test', function(req, res) {
     res.json({ requestBody: req.body }); 
