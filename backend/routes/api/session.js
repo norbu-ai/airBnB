@@ -17,8 +17,14 @@ to get the session user, connect the restoreUser middleware.
 router.get('/', restoreUser, (req, res) => {
     const { user } = req; 
     if(user) {
-        return res.json(user.toSafeObject()); 
-    } else return res.json(null)
+        return res.json({
+            user: user.toSafeObject()
+        }); 
+    } else {
+        return res.json({
+            user: null
+        })
+    }
 }); 
 
 
@@ -40,10 +46,12 @@ router.post('/', validateLogin, async(req, res, next) => {
             statusCode: 401
         })
     }
-    const token = await setTokenCookie(res, user); 
-    userObj = user.toJSON(); //so we can manipulate the user object
-    userObj.token = token; 
-    return res.json(userObj); 
+    // const token = await setTokenCookie(res, user); 
+    // userObj = user.toJSON(); //so we can manipulate the user object
+    // userObj.token = token; 
+    return res.json({
+        user: user
+    }); 
 }); 
 
 /* test login using 'username' credential 
