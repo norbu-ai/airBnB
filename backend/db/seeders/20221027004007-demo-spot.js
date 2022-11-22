@@ -1,5 +1,12 @@
 'use strict';
 
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;  // define your schema in options object
+}
+
+options.tableName = 'Spots'; 
+
 const spotData = [
   {
     ownerId: 5, 
@@ -125,12 +132,12 @@ const spotData = [
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-   await queryInterface.bulkInsert('Spots', spotData)
+   await queryInterface.bulkInsert(options, spotData)
   },
 
   async down (queryInterface, Sequelize) {
     // const Op = Sequelize.Op; 
-   await queryInterface.bulkDelete('Spots', null, {})
+   await queryInterface.bulkDelete(options, null, {})
   //  {ownerId: {[Op.in]: [3, 4, 5, 6, 8, 9]}}
   }
 };

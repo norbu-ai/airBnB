@@ -1,5 +1,12 @@
 'use strict';
 
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;  // define your schema in options object
+}
+
+options.tableName = 'SpotImages'; 
+
 const SpotImageData = [
   {
     spotId: 1, 
@@ -156,12 +163,12 @@ const SpotImageData = [
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('SpotImages', SpotImageData)
+    await queryInterface.bulkInsert(options, SpotImageData)
   },
 
   async down (queryInterface, Sequelize) {
     // const Op = Sequelize.Op; 
-    await queryInterface.bulkDelete('SpotImages', null, {})
+    await queryInterface.bulkDelete(options, null, {})
     // {spotId: {[Op.in]: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}}
   }
 };

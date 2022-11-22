@@ -1,5 +1,12 @@
 'use strict';
 
+let options = {};
+if (process.env.NODE_ENV === 'production') {
+  options.schema = process.env.SCHEMA;  // define your schema in options object
+}
+
+options.tableName = 'Bookings'; 
+
 const dateFormatter = date => new Date(Date.parse(date)).toISOString().split('T')[0]; 
 const BookingData = [
   {
@@ -66,10 +73,10 @@ const BookingData = [
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('Bookings', BookingData)
+    await queryInterface.bulkInsert(options, BookingData)
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Bookings', null, {})
+    await queryInterface.bulkDelete(options, null, {})
   }
 };
