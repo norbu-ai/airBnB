@@ -36,23 +36,43 @@ a JSON response with the user information. If there is no user returned from the
 static method, then create a "Login failed" error and invoke the next error-handling 
 middleware with it.
 */
-router.post('/', validateLogin, async(req, res, next) => {
-    const { credential, password } = req.body; 
-    const user = await User.login({ credential, password }); 
-    if (!user){
-        res.status(401);
+
+router.post('/', validateLogin, async(req, res, ) => {
+
+    const {credential, password} = req.body; 
+
+    const user = await User.login({ credential, password })
+
+    if(!credential || !password) {
+        res.status(400)
         return res.json({
-            message: "Invalid credentials", 
-            statusCode: 401
+            'message': 'Validation error', 
+            'statusCode': 400, 
+            'errors': {
+                'credential': 'Email or username is required', 
+                'password': 'Password is required'
+            }
         })
     }
-    // const token = await setTokenCookie(res, user); 
-    // userObj = user.toJSON(); //so we can manipulate the user object
-    // userObj.token = token; 
-    return res.json({
-        user: user
-    }); 
-}); 
+
+    if (!user) {
+        res.status(401)
+        return res.json({
+            'message': 'Invalid credentials', 
+            'statusCode': 401
+        })
+    }
+
+    const token = await setTokenCookie(res, user); 
+
+    const userObj = user.toJSON(); 
+    userObj.token = token; 
+    delete userObj.createdAt
+    delete userObj.updatedAt 
+    return res.json(userObj)
+})
+
+
 
 /* test login using 'username' credential 
     fetch('/api/session', {
@@ -66,7 +86,7 @@ router.post('/', validateLogin, async(req, res, next) => {
 */
 
 /* test login using 'email' credential 
-   fetch('/api/session', {
+    fetch('/api/session', {
     method: 'POST',
     headers: {
         "Content-Type": "application/json",
