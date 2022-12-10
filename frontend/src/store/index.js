@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { legacy_createStore as createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import sessionReducer from './session';
@@ -11,6 +11,8 @@ const rootReducer = combineReducers({
 
 let enhancer;
 
+// Initialize an enhancer variable that will be set to different store enhancers 
+// depending on if the Node environment is in development or production
 if (process.env.NODE_ENV === 'production') {
     enhancer = applyMiddleware(thunk);
 } else {

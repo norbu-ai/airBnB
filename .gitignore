@@ -1,4 +1,5 @@
 node_modules
+README
 .env
 build
 .DS_Store
