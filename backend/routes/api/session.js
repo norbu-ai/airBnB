@@ -63,10 +63,10 @@ router.post('/', validateLogin, async(req, res, ) => {
         })
     }
 
-    const token = await setTokenCookie(res, user); 
+    // const token = await setTokenCookie(res, user); 
 
     const userObj = user.toJSON(); 
-    userObj.token = token; 
+    // userObj.token = token; 
     delete userObj.createdAt
     delete userObj.updatedAt 
     return res.json(userObj)

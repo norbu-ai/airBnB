@@ -12,12 +12,16 @@ function LoginFormPage() {
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    if (sessionUser) return (
-        <Redirect to="/" />
-    );
+    // if there is a current session user in the Redux store, then
+    // redirect the user to the "/" path if trying to access the LoginFormPage
+    if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = async(e) => {
         e.preventDefault();
+        /*
+            - dispatch the login thunk action with the form input values
+            -if incorrect password, display error message
+        */
         setErrors([]);
         return dispatch(sessionActions.login({ credential, password }))
         .catch(async (res) => {
@@ -28,28 +32,37 @@ function LoginFormPage() {
 
     return (
         <form onSubmit={handleSubmit}>
+
+
+        <fieldset style={{border:'1px solid red'}}>
+            <legend style={{color: 'red'}}>Fill out your information</legend>
+
+
         <ul>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
-            Username or Email
+            Username or Email:
             <input
             type="text"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
             />
-        </label>
+        </label><br/>
         <label>
-            Password
+            Password:
             <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             />
-        </label>
+        </label><br/>
         <button type="submit">Log In</button>
+
+    
+        </fieldset>
         </form>
     );
 }

@@ -50,7 +50,7 @@ fetch('/api/test', {
 
 
 /* test 'setTokenCookie' middleware in auth.js file 
-   endpoint: GET /api/set-token-cookie 
+    endpoint: GET /api/set-token-cookie 
 */
 const { setTokenCookie } = require('../../utils/auth.js'); 
 const { User } = require('../../db/models'); 

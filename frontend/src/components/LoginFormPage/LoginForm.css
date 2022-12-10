@@ -2,6 +2,7 @@
 form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
     width: 450px;
     margin: auto;
 }
@@ -9,7 +10,11 @@ form {
 
 body {
     background-color: beige;
+    color: red
 }
 
 
+input {
+    margin: 5px 5px;
+}
 

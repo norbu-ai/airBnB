@@ -1,7 +1,13 @@
 import { csrfFetch } from './csrf';
 
+
+/* ------------ action type constants ------------ */
+
 const SET_USER = 'session/setUser';
 const REMOVE_USER = 'session/removeUser';
+
+
+/* ------------ action creators ------------ */
 
 const setUser = (user) => {
     return {
@@ -17,7 +23,9 @@ const removeUser = () => {
 };
 
 
-// signup user thunk
+/* ------------ thunk action creators ------------ */
+
+// signup user: thunk action for the POST /api/users
 export const signup = (user) => async (dispatch) => {
     const { username, email, firstName, lastName, password } = user;
     const response = await csrfFetch("/api/users", {
@@ -31,13 +39,14 @@ export const signup = (user) => async (dispatch) => {
         }),
     });
     const data = await response.json();
-    dispatch(setUser(data.user));
+    // dispatch(setUser(data.user));
+    dispatch(setUser(data));
     return response;
 };
 
 
 
-// login user thunk
+// login user: thunk action for the POST /api/session
 export const login = (user) => async (dispatch) => {
     const { credential, password } = user;
     const response = await csrfFetch('/api/session', {
@@ -48,12 +57,13 @@ export const login = (user) => async (dispatch) => {
         }),
     });
     const data = await response.json();
-    dispatch(setUser(data.user));
+    // dispatch(setUser(data.user));
+    dispatch(setUser(data));
     return response;
 };
 
 
-// logout user thunk 
+// logout user: thunk action for the DELETE /api/session
 export const logout = () => async (dispatch) => {
     const response = await csrfFetch('/api/session', {
         method: 'DELETE',
@@ -63,16 +73,19 @@ export const logout = () => async (dispatch) => {
 };
 
 
+// restore session: thunk action for the GET /api/session
 export const restoreUser = () => async dispatch => {
     const response = await csrfFetch('/api/session');
     const data = await response.json();
-    dispatch(setUser(data.user));
+    // dispatch(setUser(data.user));
+    dispatch(setUser(data));
     return response;
 };
 
 
-const initialState = { user: null };
+/* ------------ session Reducer ------------ */
 
+const initialState = { user: null };
 const sessionReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
