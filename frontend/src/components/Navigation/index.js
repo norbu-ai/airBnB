@@ -2,9 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import OpenModalButton from '../OpenModalButton'; 
-import LoginFormModal from '../LoginFormModal'; 
-import SignupFormModal from '../SignupFormModal';
 import './Navigation.css';
 
 export default function Navigation({ isLoaded }){
@@ -14,7 +11,7 @@ export default function Navigation({ isLoaded }){
     if there is !session-user, show navlinks to login & signup routes
     after logging in, the navigation bar should have the links to 
     login and signup replaced with the Font Awesome user icon 
-    */
+    
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
@@ -25,8 +22,6 @@ export default function Navigation({ isLoaded }){
     } else {
         sessionLinks = (
         <li>
-            {/* <NavLink to="/login">Log In</NavLink>
-            <NavLink to="/signup">Sign Up</NavLink> */}
 
             <OpenModalButton 
                 buttonText="Log In"
@@ -41,11 +36,16 @@ export default function Navigation({ isLoaded }){
         </li>
         );
     }
+    */
 
     return (
         <ul>
             <li><NavLink exact to="/">Home</NavLink></li>
-            {isLoaded && sessionLinks}
+            {isLoaded && (
+                <li>
+                    <ProfileButton user={sessionUser} />
+                </li>
+            )}
         </ul>
     );
 }

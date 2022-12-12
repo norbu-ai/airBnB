@@ -5,3 +5,4 @@ build
 .DS_Store
 *.db
 .gitignore
+favicon-32x32.png

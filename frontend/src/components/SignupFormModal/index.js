@@ -8,7 +8,7 @@ import './SignupForm.css';
 function SignupFormModal() {
     // form controlled input-fields
     const dispatch = useDispatch();
-    // const sessionUser = useSelector((state) => state.session.user);
+    
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [firstName, setFirstname] = useState("")
@@ -17,10 +17,11 @@ function SignupFormModal() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [errors, setErrors] = useState([]);
     const { closeModal } = useModal(); 
-
+    
+    const sessionUser = useSelector((state) => state.session.user);
     // if there is a current session user in Redux-store, then
     // redirect the user to "/" path if trying to access SignupFormPage 
-    // if (sessionUser) return <Redirect to="/" />;
+    if (sessionUser) return <Redirect to="/" />;
 
     const handleSubmit = (e) => {
         e.preventDefault();
