@@ -55,9 +55,7 @@ router.post('/', validateSignup, async(req, res) => {
     const token = await setTokenCookie(res, user); 
     user = user.toJSON(); //so we can manipulate
     user.token = token; 
-    return res.json({
-        user: user
-    }); 
+    return res.json({ user }); 
 }); 
 
 /* test the Signup route: 

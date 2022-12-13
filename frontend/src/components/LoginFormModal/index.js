@@ -30,7 +30,8 @@ export default function LoginFormModal() {
         .then(closeModal)
         .catch(async (res) => {
             const data = await res.json();
-            if (data && data.errors) setErrors(data.errors);
+            const errorsArr = Object.values(data.errors); 
+            if (data && errorsArr.length) setErrors(errorsArr);
         });
     }
 
@@ -48,21 +49,21 @@ export default function LoginFormModal() {
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
-                Username or Email:
                 <input
                 type="text"
+                placeholder="Username or Email"
                 value={credential}
                 onChange={(e) => setCredential(e.target.value)}
-                required
+                // required
                 />
             </label><br/>
             <label>
-                Password:
                 <input
                 type="password"
+                placeholder='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                required
+                // required
                 />
             </label><br/>
             <button type="submit">Log In</button>

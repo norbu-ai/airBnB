@@ -16,15 +16,8 @@ to get the session user, connect the restoreUser middleware.
 // restore session user 
 router.get('/', restoreUser, (req, res) => {
     const { user } = req; 
-    if(user) {
-        return res.json({
-            user: user.toSafeObject()
-        }); 
-    } else {
-        return res.json({
-            user: null
-        })
-    }
+    if(user) res.json({ user: user.toSafeObject() }); 
+    res.json({ user: null })
 }); 
 
 
@@ -37,7 +30,7 @@ static method, then create a "Login failed" error and invoke the next error-hand
 middleware with it.
 */
 
-router.post('/', validateLogin, async(req, res, ) => {
+router.post('/', validateLogin, async(req, res, next) => {
 
     const {credential, password} = req.body; 
 
@@ -45,7 +38,7 @@ router.post('/', validateLogin, async(req, res, ) => {
 
     if (!user) {
         const err = new Error('Login failed'); 
-        err.status(401)
+        err.status = 401; 
         err.title = 'Login failed'; 
         err.errors = ['The provided credentials were invalid.']; 
         return next(err)

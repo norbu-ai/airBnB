@@ -10,7 +10,7 @@ length of 4 and is not an email, and req.body.password is not empty and has a mi
 of 6. If at least one of the req.body values fail the check, an error will be returned as the response.
 */
 const validateSignup = [
-    check('email').isEmail({checkFalsy: true}).withMessage('Invalid email'), 
+    check('email').exists({checkFalsy: true}).isEmail().withMessage('Invalid email'), 
     check('password').exists({checkFalsy: true}).withMessage('Password is required'),
     // check('password')exists({checkFalsy: true}).withMessage('Password is required').isLength({min:6}).withMessage('Password must have at least 6 characters'), 
     check('username').exists({checkFalsy: true}).withMessage('Username is required').not().isEmail().withMessage('Username cannot be an email'), 
