@@ -1,0 +1,35 @@
+.footer-wrapper {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 2vh 0vw;
+  font-size: 14px;
+  display: flex;
+  /* justify-content: center; */
+  /* background-color: rgb(254, 254, 254, 1); */
+  /* background-color: beige; */
+  background-color: white;
+  border-top: 1px solid rgb(96, 123, 198, 0.2);
+  color: rgb(171, 178, 193);
+}
+
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+
+.social-link {
+  padding: 0 5px;
+}
+
+.footer-main a, a:visited,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: rgb(171, 178, 193);
+}

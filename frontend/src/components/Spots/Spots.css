@@ -1,0 +1,105 @@
+
+/*----------- load spots css ------------*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12vw;
+}
+
+.allspots-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 30px 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+.each-image-container {
+  width: 100%;
+  padding-bottom: 100%;
+  margin: 1em auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+}
+
+.each-image-container img {
+  position: absolute;
+  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+  min-height: 100%;
+  border-radius: 15px;
+}
+
+
+.each-spot-detail-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2px 2px 0px;
+  min-width: 0;
+}
+
+.each-spot-location-detail {
+  font-weight: bolder;
+}
+
+
+.each-spot-price {
+  font-weight: bolder;
+}
+
+.each-spot-price span {
+  font-weight: lighter;
+}
+
+
+
+/*----------- create spot css ------------*/
+
+
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.form-header {
+  margin-bottom: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.form .input-line-break {
+  width:102.5%;
+}
+
+.form select {
+  width: 92%;
+  /* margin-left: 13px; */
+}
+.form input {
+  margin-left: 3px;
+}
+.form textarea {
+  margin-left: 3px;
+}
+.form label {
+  color: rgb(255, 90, 96);
+  /* color: gray; */
+  margin-left: 6px;
+}
+
+

@@ -4,6 +4,7 @@ form {
     flex-direction: column;
     width: 450px;
     margin: auto;
+    border: 1px red solid; 
 }
 
 
@@ -11,4 +12,16 @@ form {
 input {
     margin: 5px 5px;
     
+}
+
+
+.signup-btn {
+    background: #FF5A5F;
+    border-radius: 80px;
+    font-weight: 700;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 15px;
+    color: whitesmoke;
+    cursor: pointer;
 }

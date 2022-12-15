@@ -67,14 +67,13 @@ window.store.dispatch(
 
 function Root() {
   return (
-    <ModalProvider>
-      <ReduxProvider store={store}>
+    <ReduxProvider store={store}>
+      <ModalProvider>
         <BrowserRouter>
           <App />
-          <Modal />
         </BrowserRouter>
-      </ReduxProvider>
-    </ModalProvider>
+      </ModalProvider>
+    </ReduxProvider>
   );
 }
 

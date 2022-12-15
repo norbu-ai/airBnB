@@ -1,68 +1,82 @@
-
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session';
-import OpenModalButton from '../OpenModalButton'; 
-import LoginFormModal from '../LoginFormModal'; 
-import SignupFormModal from '../SignupFormModal';
+import React, { useState, useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { useHistory } from "react-router-dom"
+import { logout } from "../../store/session"
 
 
-// ProfileButton component is only rendered when there is a session-user 
-function ProfileButton({ user }) {
+const ProfileButton = ({ user }) => {
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const [showMenu, setShowMenu] = useState(false)
 
-    const dispatch = useDispatch();
-    const [showMenu, setShowMenu] = useState(false); 
-    const ulRef = useRef(); 
+  const openMenu = () => {
+    if (showMenu) return
+    setShowMenu(true)
+  }
 
-    const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true)
-    }; 
+  useEffect(() => {
+    if (!showMenu) return
+    const closeMenu = () => setShowMenu(false)
+    document.addEventListener("click", closeMenu)
+    return () => document.removeEventListener("click", closeMenu)
+  }, [showMenu])
 
-    useEffect(() => {
-        if (!showMenu) return; 
+  useEffect(() => {
 
-        const closeMenu = (e) => {
-            if (!ulRef.current.contains(e.target)){
-                setShowMenu(false); 
-            }
-        }; 
-        document.addEventListener('click', closeMenu); 
-        return () => document.removeEventListener('click', closeMenu)
-    }, [showMenu]); 
+  }, [user])
 
-    const closeMenu = () => setShowMenu(false); 
+  const logoutUser = (e) => {
+    e.preventDefault()
+    dispatch(logout())
+  }
 
-     // logout button dispatch the logout action when clicked
-    const logout = (e) => {
-        e.preventDefault(); 
-        dispatch(sessionActions.logout()); 
-        closeMenu(); 
-    }; 
+  // renders navigation + loggedin profile dropdown menu 
+  return (
+    <>
+      <div className="nav-earth-profile-div">
 
-    const ulClassName = 'profile-dropdown' + (showMenu ? "" : " hidden"); 
-    
-    return (
-        <>
-            <button onClick={openMenu}><i className="fas fa-user-circle" /></button>
+        <button onClick={openMenu} className="profile-login-btn-div-with-icons">
+            <i id='bars' className="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-user"></i>
+        </button>
 
-            <ul className={ulClassName} ref={ulRef}>
-                {user ? (
-                <>
-                    <li>{user.username}</li>
-                    <li>{user.firstName} {user.lastName}</li>
-                    <li>{user.email}</li>
-                    <li><button onClick={logout}>Log Out</button></li>
-                </>
-                ) : (
-                <>
-                    <li><OpenModalButton buttonText='Log In' onItemClick={closeMenu} modalComponent={<LoginFormModal />} /></li>
-                    <li><OpenModalButton buttonText='Sign Up' onItemClick={closeMenu} modalComponent={<SignupFormModal />} /></li>
-                </>
-                )}
-            </ul>
-        </>
-    );
+        {
+          showMenu && (
+
+          <div className="profile-dropdown-div-after-loggedin">
+
+            <div className="profile-dropdown-session-user-wrapper">
+              {console.log("current session user:", user)}
+              <div className="profile-dropdown-session-user-detail">{user.username}</div>
+              <div className="profile-dropdown-session-user-detail">{user.email}</div>
+            </div>
+
+            <div className='profile-dropdown-linebreak'></div>
+
+            <div className="logged-dropdown-menu-below-currentuser-detail">
+              <div onClick={()=>history.push("/newspot")}>Create Spot</div>
+            </div>
+
+            <div className="logged-dropdown-menu-below-currentuser-detail">
+              <div onClick={()=>history.push("/")}>All Spots</div>
+            </div>
+
+            {/* <div className="logged-dropdown-menu-below-currentuser-detail">
+              <div onClick={()=>history.push("/myreviews")}>My Reviews</div>
+            </div> */}
+
+            <div className="logged-dropdown-menu-below-currentuser-detail">
+              <div onClick={logoutUser}>Log Out</div>
+            </div>
+
+
+          </div>
+
+        )}
+
+      </div>
+    </>
+  )
 }
 
-export default ProfileButton;
+export default ProfileButton

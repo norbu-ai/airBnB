@@ -132,12 +132,12 @@ const spotData = [
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-   await queryInterface.bulkInsert(options, spotData)
+  await queryInterface.bulkInsert(options, spotData)
   },
 
   async down (queryInterface, Sequelize) {
     // const Op = Sequelize.Op; 
-   await queryInterface.bulkDelete(options, null, {})
+  await queryInterface.bulkDelete(options, null, {})
   //  {ownerId: {[Op.in]: [3, 4, 5, 6, 8, 9]}}
   }
 };

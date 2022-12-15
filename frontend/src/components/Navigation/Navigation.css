@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-earth-profile-div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: -50px 0px 0px 0px;
+}
+
+.profile-login-btn-div-with-icons {
+  width: 70px;
+  height: 40px;
+  border-radius: 20px;
+  border: 1px solid red; 
+  justify-self: left;
+  background-color: white;
+  transition: box-shadow 0.5s;
+}
+
+.profile-login-btn-div-with-icons:hover {
+  box-shadow: 1px 2px 5px rgb(255, 90, 96, 0.7);;
+  /* box-shadow: 1px 2px 5px rgb(187, 200, 228, 0.7); */
+  cursor: pointer;
+}
+
+.fa-user {
+  /* color: rgb(171, 178, 193); */
+  color: rgb(255, 90, 96);
+  /* color: rgb(96, 123, 198); */
+  margin-left: 5px;
+  border-radius: 50%;
+}
+
+.fa-bars {
+  /* color: rgb(171, 178, 193); */
+  color: rgb(255, 90, 96);
+  /* color: rgb(96, 123, 198); */
+  margin-right: 8px;
+
+}
+
+.profile-dropdown-div-after-loggedin {
+  border: solid rgb(187, 200, 228, 0.3) 0.1px;
+  box-shadow: 0px 0px 10px rgb(187, 200, 228, 0.5);
+  background-color: white;
+  border-radius: 15px;
+  top: 83px;
+  position: absolute;
+  height: 270px;
+  width: 200px;
+  z-index: 5000;
+}
+
+.profile-dropdown-session-user-wrapper {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.profile-dropdown-session-user-detail {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  padding-left: 15px;
+  height: 20px;
+  /* font-size:14px; */
+  font-weight:300;
+}
+
+.profile-dropdown-linebreak {
+  background-color: rgb(96, 123, 198, 0.2);
+  width: 100%;
+  height: 1px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.logged-dropdown-menu-below-currentuser-detail {
+  /* margin-top: 15px; */
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 15px;
+  height: 20px;
+}
+
+.logged-dropdown-menu-below-currentuser-detail:hover {
+  background-color: rgb(187, 200, 228, 0.3);
+  cursor: pointer;
+}
+
+.profile-dropdown-div-not-loggedin {
+  border: solid rgb(187, 200, 228, 0.3) 0.1px;
+  box-shadow: 0px 0px 10px rgb(187, 200, 228, 0.7);
+  background-color: white;
+  border-radius: 15px;
+  top: 83px;
+  position: absolute;
+  height: 145px;
+  width: 200px;
+  z-index: 5000;
+  padding-top: 11px;
+}
+
+.select-login-type {
+  margin-bottom: 6px;
+  /* margin-bottom: 20px; */
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 15px;
+  height: 20px;
+}
+
+.select-login-type:hover {
+  background-color: rgb(187, 200, 228, 0.3);
+  cursor: pointer;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  max-width: 60px;
+  max-height: 60px; 
+  margin-top: 18px;
+  margin-left: 10vw;
+  width: 130px;
+}
+
+.nav-break-line {
+  background-color: rgb(187, 200, 228, 0.3);
+  width: 100%;
+  height: 1.5px;
+  margin-top: 22px;
+}
+
+.sessionlinks {
+  padding-right: 12vw;
+}
+
+/* .logo-text {
+  color: rgb(255,56,92);
+  font-size: 16pt;
+  letter-spacing: -1.5px;
+  font-weight: 700;
+} */
+

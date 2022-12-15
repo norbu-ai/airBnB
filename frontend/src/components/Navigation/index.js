@@ -1,52 +1,59 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
-import './Navigation.css';
+import React, { useState } from "react"
+import { NavLink } from "react-router-dom"
+import { useSelector } from "react-redux"
+import ProfileButton from "./ProfileButton"
+import AuthenticateMe from "./AuthenticateMe"
+import LoginFormModal from "../LoginFormModal"
+import SignupFormModal from "../SignupFormModal"
+import logo from './earth_logo.png'; 
+import "./Navigation.css"
 
-export default function Navigation({ isLoaded }){
-    const sessionUser = useSelector((state) => state.session.user);
-    /*
-    if there is a session-user, render a logout button component
-    if there is !session-user, show navlinks to login & signup routes
-    after logging in, the navigation bar should have the links to 
-    login and signup replaced with the Font Awesome user icon 
-    
-    let sessionLinks;
-    if (sessionUser) {
-        sessionLinks = (
-            <li>       
-                <ProfileButton user={sessionUser} />
-            </li>
-        );
-    } else {
-        sessionLinks = (
-        <li>
+const Navigation = ({ isLoaded }) => {
+  const [showLoginModal, setShowLoginModal] = useState(false)
+  const [showSignupModal, setShowSignupModal] = useState(false);
+  
+  const currentUser = useSelector(state => state.session.user)
+  let sessionLinks
 
-            <OpenModalButton 
-                buttonText="Log In"
-                modalComponent={<LoginFormModal />}
-            />
+  if (currentUser) {
+    sessionLinks = (
+      <ProfileButton user={currentUser} />
+    )
+  } else {
+    sessionLinks = (
+      <AuthenticateMe
+        setShowLoginModal={setShowLoginModal}
+        setShowSignupModal={setShowSignupModal}
+      />
+    )
+  }
 
-            <OpenModalButton
-                buttonText="Sign Up"
-                modalComponent={<SignupFormModal />}
-            />
+  // renders everything above the line break between navigation and load-content
+  return (
+    <div>
+        <LoginFormModal
+          showLoginModal={showLoginModal}
+          setShowLoginModal={setShowLoginModal}
+        />
 
-        </li>
-        );
-    }
-    */
+        <SignupFormModal
+          showSignupModal={showSignupModal}
+          setShowSignupModal={setShowSignupModal}
+        />
 
-    return (
-        <ul>
-            <li><NavLink exact to="/">Home</NavLink></li>
-            {isLoaded && (
-                <li>
-                    <ProfileButton user={sessionUser} />
-                </li>
-            )}
-        </ul>
-    );
+          <NavLink exact to="/">
+            <img className="logo" src={logo} />
+            {/* <span className='logo-text'>Yonder</span> */}
+          </NavLink>
+  
+
+          <div className="sessionlinks">
+            {sessionLinks}
+          </div>
+
+        <div className="nav-break-line"></div>
+    </div>
+  )
 }
 
+export default Navigation

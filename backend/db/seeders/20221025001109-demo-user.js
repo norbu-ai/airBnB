@@ -17,6 +17,13 @@ const UsersData = [
     hashedPassword: bcrypt.hashSync('password1')
   }, 
   {
+    email: 'akyeshi@google.com', 
+    username: 'akyeshi', 
+    firstName: 'Achok Khenrap', 
+    lastName: 'Yeshi', 
+    hashedPassword: bcrypt.hashSync('scientist')
+  }, 
+  {
     email: 'user2@user.io', 
     username: 'FakeUser2', 
     firstName: 'fname2', 
