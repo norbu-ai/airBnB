@@ -24,52 +24,52 @@ const UsersData = [
     hashedPassword: bcrypt.hashSync('scientist')
   }, 
   {
-    email: 'user2@user.io', 
-    username: 'FakeUser2', 
-    firstName: 'fname2', 
-    lastName: 'lname2', 
+    email: 'michael@user.io', 
+    username: 'michael345', 
+    firstName: 'Michael', 
+    lastName: 'Johnson', 
     hashedPassword: bcrypt.hashSync('password2')
   }, 
   {
-    email: 'user3@user.io', 
-    username: 'FakeUser3', 
-    firstName: 'fname3', 
-    lastName: 'lname3', 
+    email: 'alexvski@user.io', 
+    username: 'alexvolski', 
+    firstName: 'Alexander', 
+    lastName: 'Volkanoski', 
     hashedPassword: bcrypt.hashSync('password3')
   }, 
   {
-    email: 'user4@user.io', 
-    username: 'FakeUser4', 
-    firstName: 'fname4', 
-    lastName: 'lname4', 
+    email: 'islamMchev@user.io', 
+    username: 'islam4tmr', 
+    firstName: 'Islam', 
+    lastName: 'Makhachev', 
     hashedPassword: bcrypt.hashSync('password4')
   }, 
   {
-    email: 'user5@user.io', 
-    username: 'FakeUser5', 
-    firstName: 'fname5', 
-    lastName: 'lname5', 
+    email: 'leonedward@user.io', 
+    username: 'leon5edward', 
+    firstName: 'Leon', 
+    lastName: 'Edwards', 
     hashedPassword: bcrypt.hashSync('password5')
   }, 
   {
-    email: 'user6@user.io', 
-    username: 'FakeUser6', 
-    firstName: 'fname6', 
-    lastName: 'lname6', 
+    email: 'francisNganou@user.io', 
+    username: 'francisNgannou', 
+    firstName: 'Francis', 
+    lastName: 'Ngannou', 
     hashedPassword: bcrypt.hashSync('password6')
   }, 
   {
-    email: 'user7@user.io', 
-    username: 'FakeUser7', 
-    firstName: 'fname7', 
-    lastName: 'lname7', 
+    email: 'charlesoliveria@user.io', 
+    username: 'oliver4king', 
+    firstName: 'Charles', 
+    lastName: 'Oliveira', 
     hashedPassword: bcrypt.hashSync('password7')
   }, 
   {
-    email: 'user8@user.io', 
-    username: 'FakeUser8', 
-    firstName: 'fname8', 
-    lastName: 'lname8', 
+    email: 'israel8sania@user.io', 
+    username: 'israelSania', 
+    firstName: 'Israel', 
+    lastName: 'Adesanya', 
     hashedPassword: bcrypt.hashSync('password8')
   }, 
   {
@@ -80,17 +80,17 @@ const UsersData = [
     hashedPassword: bcrypt.hashSync('password9')
   }, 
   {
-    email: 'user10@user.io', 
-    username: 'FakeUser10', 
-    firstName: 'fname10', 
-    lastName: 'lname10', 
+    email: 'jonnybonejones@user.io', 
+    username: 'jonnybone', 
+    firstName: 'Jon', 
+    lastName: 'Jones', 
     hashedPassword: bcrypt.hashSync('password10')
   }, 
- ]; 
+]; 
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-   await queryInterface.bulkInsert(options, UsersData, {})
+    await queryInterface.bulkInsert(options, UsersData, {})
   },
 
   async down (queryInterface, Sequelize) {
