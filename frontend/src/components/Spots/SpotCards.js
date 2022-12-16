@@ -7,20 +7,20 @@ function SpotCards({spot}) {
     <div>
       <Link style={{ textDecoration: "none", color: "black" }} to={`/spots/${spot.id}`}>
 
-        <div className="each-image-container">
+        <div className="spotCard-image-container">
         {spot.previewImage ?
           (<div><img src={spot.previewImage} /></div>) :
           (<div><img src='image' alt="noimage" /></div>)
         }
         </div>
 
-        <div className="allspots-spot-info-container">
+        <div className="spotCard-spot-info-container">
 
-          <div className="each-spot-detail-info">
-            <div className="each-spot-location-detail">
+          <div className="spotCard-spot-detail-info">
+            <div className="spotCard-spot-location-detail">
               {spot.city}, {spot.state}
             </div>
-            <div className="each-spot-ratings">
+            <div className="spotCard-spot-ratings">
               {spot.avgRating ? 
               (<span>★ {spot.avgRating}</span>): 
               (<span style={{color: 'red'}}>New!</span>)
@@ -28,7 +28,7 @@ function SpotCards({spot}) {
             </div>
           </div>
       
-          <div className="each-spot-price">
+          <div className="spotCard-spot-price">
             ${spot.price} <span></span>
           </div>
         </div>

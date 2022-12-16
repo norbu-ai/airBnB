@@ -7,9 +7,10 @@ import PageNotFound from "./components/PageNotFound";
 import Footer from "./components/Footer";
 
 import LoadAllSpots from "./components/Spots/LoadAllSpots";
-import CreateSpot from "./components/Spots/CreateSpot";
 import LoadOneSpot from "./components/Spots/LoadOneSpot";
-
+import CreateSpot from "./components/Spots/CreateSpot";
+import LoadMySpots from "./components/Spots/LoadMySpots";
+import EditSpot from "./components/Spots/EditSpot";
 
 
 function App() {
@@ -28,12 +29,21 @@ function App() {
         <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>
+
             <Route exact path="/">
               <LoadAllSpots />
             </Route>
 
-            <Route path="/newspot">
+            <Route exact path="/newspot">
               <CreateSpot />
+            </Route>
+
+            <Route exact path="/myspots">
+              <LoadMySpots />
+            </Route>
+
+            <Route path="/myspots/edit/:spotId">
+              <EditSpot />
             </Route>
 
             <Route path="/spots/:spotId">

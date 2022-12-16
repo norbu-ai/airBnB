@@ -56,10 +56,16 @@ const ProfileButton = ({ user }) => {
             <div className="logged-dropdown-menu-below-currentuser-detail">
               <div onClick={()=>history.push("/newspot")}>Create Spot</div>
             </div>
+            
+            <div className="logged-dropdown-menu-below-currentuser-detail">
+              <div onClick={()=>history.push("/myspots")}>My Spots</div>
+            </div>
 
             <div className="logged-dropdown-menu-below-currentuser-detail">
-              <div onClick={()=>history.push("/")}>All Spots</div>
+              <div onClick={()=>history.push("/myreviews")}>My Reviews</div>
             </div>
+
+
 
             {/* <div className="logged-dropdown-menu-below-currentuser-detail">
               <div onClick={()=>history.push("/myreviews")}>My Reviews</div>

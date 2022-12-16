@@ -60,6 +60,10 @@ function CreateSpot() {
     const imageInfo = ({ url, preview: true})
 
     const newSpot = await dispatch(createNewSpot(spotInfo, imageInfo))
+      .catch(async (res) => {
+          const data = await res.json();
+          if (data && data.errors.length) setErrors(data.errors);
+        })
 
     if (newSpot) {
       await dispatch(addSpotImage(newSpot.id, imageInfo))
@@ -89,8 +93,9 @@ function CreateSpot() {
   }
 
   return (
-    <div className="form-container">
-      <h2 className="form-header">
+
+    <div className="host-whole-container">
+      <h2 className="host-header-container">
         Create Spot
       </h2>
 
@@ -101,48 +106,48 @@ function CreateSpot() {
           }
         </div>
 
-      <div className="form form-input-line-break">
+      <div className="host-form-container form-input-wrapper">
         <form onSubmit={handleSubmit}>
           <label>
+            Name:
             <input
               type="text"
-              placeholder="Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </label>
           <div className="form-input-break"></div>
           <label>
+            Address:
             <input
               type="text"
-              placeholder="Address"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
           </label>
           <div className="form-input-break"></div>
           <label>
+            City:
             <input
               type="text"
-              placeholder="City"
               value={city}
               onChange={(e) => setCity(e.target.value)}
             />
           </label>
           <div className="form-input-break"></div>
           <label>
+            State:
             <input
               type="text"
-              placeholder="State"
               value={state}
               onChange={(e) => setState(e.target.value)}
             />
           </label>
           <div className="form-input-break"></div>
           <label>
+            Country:
             <select
               type="text"
-              placeholder="Country"
               value={country}
               onChange={(e) => setCountry(e.target.value)}
             >
@@ -153,44 +158,52 @@ function CreateSpot() {
             </select>
           </label>
           {/* <label>
+            Country:
+            <input
+              type="text"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+            />
+          </label> */}
+          {/* <label>
+            Latitude:
             <input
               type="number"
-              placeholder="Latitude"
               value={lat}
               onChange={(e) => setLat(e.target.value)}
             />
           </label>
           <label>
+            Longitude:
             <input
               type="number"
-              placeholder="Longitude"
               value={lng}
               onChange={(e) => setLng(e.target.value)}
             />
           </label> */}
           <div className="form-input-break"></div>
           <label>
+            Description:
             <textarea
               type="text"
-              placeholder="Description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
           </label>
           <div className="form-input-break"></div>
           <label>
+            Price:
             <input
               type="number"
-              placeholder="Price"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
           </label>
           <div className="form-input-break"></div>
           <label>
+            Image URL:
             <input
               type="text"
-              placeholder="Image URL"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
             />
@@ -198,6 +211,7 @@ function CreateSpot() {
 
           <div className="form-input-break"></div>
           <button
+        
           className="submit-button"
           >
             Create
@@ -209,6 +223,7 @@ function CreateSpot() {
             Cancel
           </button>
         </form>
+
         </div>
     </div>
   )

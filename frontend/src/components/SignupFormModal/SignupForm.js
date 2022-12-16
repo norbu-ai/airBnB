@@ -44,79 +44,103 @@ function SignupForm({ onClose, setShowSignupModal }) {
     // console.log('errors: ', errors)
 
     return (
-        <>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
 
-            <fieldset style={{border:'1px solid red'}}>
-                <legend style={{color: 'red'}}>Fill out your information</legend>
+      <div className="form-wrapper">
 
-            <ul>
-                {errors.length > 0 && errors.map((error, idx) => (
-                    <li key={idx}>{error}</li>
-                ))}
-            </ul>
-            <label>
-                <input
+
+      <form onSubmit={handleSubmit}>
+
+          <div className="modal-top-header">Sign Up</div>
+          <div className="line-break"></div>
+          <div className="modal-welcome-subheader">Welcome to Yonder</div>
+  
+          <div className="validation-errors">
+            {errors.length > 0 &&
+            errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </div>
+    
+          <div className="form-input-wrapper">
+
+            <label className="field">
+              Email
+              <input
                 type="text"
-                placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 // required
-                />
-            </label><br/>
-            <label>
-                <input
+              />
+            </label>
+
+            <div className="form-input-line-break"></div>
+
+            <label className="field">
+              Username
+              <input
                 type="text"
-                placeholder="Username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 // required
-                />
-            </label><br/>
-            <label>
-                <input
+              />
+            </label>
+
+            <div className="form-input-line-break"></div>
+
+            <label className="field">
+              First Name
+              <input
                 type="text"
-                placeholder="First Name"
                 value={firstName}
                 onChange={(e) => setFirstname(e.target.value)}
                 // required
-                />
-            </label><br/>
+              />
+            </label>
 
-            <label>
-                <input
+            <div className="form-input-line-break"></div>
+
+            <label className="field">
+              Last Name
+              <input
                 type="text"
-                placeholder="Last Name"
                 value={lastName}
                 onChange={(e) => setLastname(e.target.value)}
                 // required
-                />
-            </label><br/>
-            <label>
-                <input
+              />
+            </label>
+
+            <div className="form-input-line-break"></div>
+
+            <label className="field">
+              Password
+              <input
                 type="password"
-                placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 // required
-                />
-            </label><br/>
-            <label>
-                <input
+              />
+            </label>
+
+            <div className="form-input-line-break"></div>
+
+            <label className="field">
+              Confirm Password
+              <input
                 type="password"
-                placeholder="Confirm password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 // required
-                />
-            </label><br/>
-            <button className='signup-btn' type="submit">Sign Up</button>
+              />
+            </label>
 
-            </fieldset>
-            </form>
-        </>
-    );
+          </div>
+
+          <button className="submit-btn" type="submit">Sign Up</button>
+
+      </form>
+
+      </div>
+    )
 }
 
 export default SignupForm;

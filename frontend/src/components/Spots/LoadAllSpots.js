@@ -1,6 +1,6 @@
 import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { getAllSpots, ResetSpots } from "../../store/spots"
+import { getAllSpots, resetSpots } from "../../store/spots"
 import SpotCards from "./SpotCards"; 
 import "./Spots.css"
 
@@ -14,9 +14,9 @@ const LoadAllSpots = () => {
 
   // garbage collection 
   useEffect(() => {
-    dispatch(getAllSpots())
+    dispatch(getAllSpots()); 
     return () => {
-      dispatch(ResetSpots())
+      dispatch(resetSpots())
     }
   }, [dispatch])
 
@@ -25,8 +25,8 @@ const LoadAllSpots = () => {
   
   return (
     <>
-    <div className="container">
-      <div className="allspots-container">
+    <div className="loadAllSpots-container">
+      <div className="loadAllSpots-allspots-container">
         {
           allSpotsArr.map(spot => (
             <SpotCards key={spot.id} spot={spot} />

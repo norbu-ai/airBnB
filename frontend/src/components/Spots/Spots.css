@@ -1,7 +1,7 @@
 
-/*----------- load spots css ------------*/
+/*----------- LoadAllSpots component css ------------*/
 
-.container {
+.loadAllSpots-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@
   padding: 0 12vw;
 }
 
-.allspots-container {
+.loadAllSpots-allspots-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto;
@@ -20,7 +20,10 @@
   margin-bottom: 80px;
 }
 
-.each-image-container {
+
+/*----------- SpotCard component css ------------*/
+
+.spotCard-image-container {
   width: 100%;
   padding-bottom: 100%;
   margin: 1em auto;
@@ -29,7 +32,7 @@
   border-radius: 15px;
 }
 
-.each-image-container img {
+.spotCard-image-container img {
   position: absolute;
   object-fit: cover;
   width: auto;
@@ -39,67 +42,257 @@
 }
 
 
-.each-spot-detail-info {
+.spotCard-spot-detail-info {
   display: flex;
   justify-content: space-between;
   padding: 0px 2px 2px 0px;
   min-width: 0;
 }
 
-.each-spot-location-detail {
+.spotCard-spot-location-detail {
   font-weight: bolder;
 }
 
 
-.each-spot-price {
+.spotCard-spot-price {
   font-weight: bolder;
 }
 
-.each-spot-price span {
+.spotCard-spot-price span {
   font-weight: lighter;
 }
 
 
+/*----------- LoadOneSpot component css ------------*/
 
-/*----------- create spot css ------------*/
+.loadOneSpot-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 12vw;
+  margin-bottom: 80px;
 
+}
 
-.form-container {
+.loadOneSpot-header-name {
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+
+.loadOneSpot-header-detail {
+  margin-top: -14px;
+  margin-bottom: 20px;
+}
+
+.loadOneSpot-header-detail span {
+  font-size: 15px;
+  margin-right: 5px;
+  font-weight: 500;
+}
+
+.loadOneSpot-images-container {
+  display: block; 
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 60vw;
+  height: 450px;  */
+}
+
+.loadOneSpot-previewImage {
+  max-height: 450px;
+  object-fit: cover;
   width: 100%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  min-height: 450px;
+  border: 1px solid red;
+}
+
+
+.loadOneSpot-below-pictures-div {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px; 
+}
+
+.loadOneSpot-below-picture-div-left-subdiv h2 {
+  margin-top: 40px;
+}
+
+.loadOneSpot-linebreak {
+  display: flex;
+  background-color: rgb(96, 123, 198, 0.2);
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 98%;
+  height: 1px;
+}
+
+.loadOneSpot-floatbox {
+  background-color: white;
+  border-radius: 10px;
+  border: solid rgb(187, 200, 228, 0.3) 0.1px;
+  box-shadow: 0px 0px 10px rgb(187, 200, 228, 0.7);
+  height: 22vh;
+  width: 90%;
+  margin: 40px 0px 40px 10px;
+  padding: 20px 0px 0px 20px;
+}
+
+.loadOneSpot-floatbox-header {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 6px;
+  margin-right: 30px;
+}
+
+.loadOneSpot-floatbox-price {
+  font-size: 22px;
+  font-weight: bolder;
+}
+
+.loadOneSpot-floatbox-review {
+  padding-top: 5px;
+}
+
+.loadOneSpot-floatbox-review span {
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.long { width: 99.8%; }
+
+.loadOneSpot-review-header {
+  font-weight: bolder;
+  font-size: 22px;
+  margin-top: -3px;
+}
+
+
+
+/*----------- LoadMySpots component css ------------*/
+
+.myspots-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  margin-bottom: 80px;
 }
 
-.form-header {
-  margin-bottom: 10px;
-}
-
-.form {
+.myspots-header>h1,.myspots-header>h4 {
   display: flex;
   justify-content: center;
 }
 
-.form .input-line-break {
-  width:102.5%;
+.myspots-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12vw;
 }
 
-.form select {
-  width: 92%;
-  /* margin-left: 13px; */
+.myspots-allspots-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 30px 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 80px;
 }
-.form input {
-  margin-left: 3px;
+
+.myspots {
+  margin-top: 0px;
+  margin-bottom: 80px;
 }
-.form textarea {
-  margin-left: 3px;
+
+
+/*----------- MySpotCard component css ------------*/
+
+
+.myspotcard-spot-image-container {
+  width: 100%;
+  padding-bottom: 100%;
+  margin: 1em auto;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
 }
-.form label {
-  color: rgb(255, 90, 96);
-  /* color: gray; */
-  margin-left: 6px;
+
+
+.myspotcard-spot-image-container img {
+  position: absolute;
+  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+  min-height: 100%;
+  border-radius: 15px;
+}
+
+/* .myspotcard-spot-info {
+  text-decoration: none;
+} */
+
+
+.myspotcard-spot-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 2px 2px 0px;
+  /* margin-top: 5px; */
+  min-width: 0;
+}
+
+
+.myspotcard-spot-location {
+  font-weight: bolder;
+}
+
+
+/* .myspotcard-spot-rating {
+  font-weight: bolder;
+} */
+
+
+.myspotcard-spot-price {
+  font-weight: bolder;
+}
+
+.myspotcard-spot-price span {
+  font-weight: lighter;
+}
+
+
+.myspotcard-buttons-container {
+  display: flex;
+  justify-content:space-between;
+  padding: 0px 2px 2px 0px;
+  min-width: 0;
+
+}
+
+.myspotcard-buttons {
+  cursor: pointer;
+  width: 115px;
+  padding: 3px 10px;
+  margin: 6px 0px 3px 0px;
+  border: 1px rgb(255, 90, 96) solid;
+  border-radius: 4px;
+  background: rgb(255, 90, 96);
+  color: white;
+  font: bold;
+}
+
+.myspotcard-buttons:hover {
+  background: white;
+  border: 1px rgb(255, 90, 96) solid;
+  color:rgb(255, 90, 96);
 }
 
 

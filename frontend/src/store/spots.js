@@ -15,49 +15,49 @@ const RESET_SPOTS = "spots/RESET_SPOTS"
 
 /* ------------ action creators ------------ */
 
-const LoadAllSpots = (spots) => {
+const loadAllSpots = (spots) => {
   return {
     type: LOAD_ALL_SPOTS,
     spots
   }
 }
 
-const LoadUserSpots = (spots) => {
+const loadUserSpots = (spots) => {
   return {
     type: LOAD_USER_SPOTS,
     spots
   }
 }
 
-const LoadOneSpot = (spot) => {
+const loadOneSpot = (spot) => {
   return {
     type: LOAD_ONE_SPOT,
     spot
   }
 }
 
-const CreateSpot = (spot) => {
+const createSpot = (spot) => {
   return {
     type: CREATE_SPOT,
     spot
   }
 }
 
-const UpdateSpot = (spot) => {
+const updateSpot = (spot) => {
   return {
     type: UPDATE_SPOT,
     spot
   }
 }
 
-const DeleteSpot = (spotId) => {
+const deleteSpot = (spotId) => {
   return {
     type: DELETE_SPOT,
     spotId
   }
 }
 
-const AddSpotImage = (image) => {
+const createSpotImage = (image) => {
   return {
     type: ADD_SPOT_IMAGE,
     image
@@ -65,7 +65,7 @@ const AddSpotImage = (image) => {
 }
 
 
-export const ResetSpots = () => {
+export const resetSpots = () => {
   return {
     type: RESET_SPOTS
   }
@@ -80,7 +80,7 @@ export const getAllSpots = () => async (dispatch) => {
 
   if (response.ok) {
     const spots = await response.json() //array
-    dispatch(LoadAllSpots(spots))
+    dispatch(loadAllSpots(spots))
     // return spots
   }
 }
@@ -90,7 +90,7 @@ export const getUserSpots = () => async (dispatch) => {
   const response = await csrfFetch("/api/spots/current")
   if (response.ok) {
     const spots = await response.json() 
-    dispatch(LoadUserSpots(spots))
+    dispatch(loadUserSpots(spots))
   }
 }
 
@@ -99,7 +99,7 @@ export const getOneSpot = (spotId) => async (dispatch) => {
   const response = await csrfFetch(`/api/spots/${spotId}`)
   if (response.ok) {
     const spot = await response.json()
-    dispatch(LoadOneSpot(spot))
+    dispatch(loadOneSpot(spot))
   }
 }
 
@@ -114,7 +114,7 @@ export const createNewSpot = (spotInfo, imageInfo) => async (dispatch) => {
 
   if (response.ok) {
     const newspot = await response.json()
-    dispatch(CreateSpot(newspot))
+    dispatch(createSpot(newspot))
     return newspot
   }
 }
@@ -129,7 +129,7 @@ export const editSpot = (myspot, spotId) => async (dispatch) => {
 
   if (response.ok) {
     const spot = await response.json()
-    dispatch(UpdateSpot(spot))
+    dispatch(updateSpot(spot))
     return spot
   }
 }
@@ -141,7 +141,7 @@ export const removeSpot = (spotId) => async (dispatch) => {
   })
 
   if (response.ok) {
-    dispatch(DeleteSpot(spotId))
+    dispatch(deleteSpot(spotId))
   }
 }
 
@@ -157,7 +157,7 @@ export const addSpotImage = (spotId, imageObj) => async (dispatch) => {
 
   if (response.ok) {
     const image = await response.json()
-    dispatch(AddSpotImage(image))
+    dispatch(createSpotImage(image))
     return image
   }
 }
@@ -202,7 +202,7 @@ const spotsReducer = (state = initialState, action) => {
     case UPDATE_SPOT:
       newState = {...state}
       const updatedSpot = {...newState.allSpots[action.spot.id], ...action.spot}
-      newState.singleSpot = {...state.singleSpot, ...UpdateSpot}
+      newState.singleSpot = {...state.singleSpot, ...updateSpot}
       newState.allSpots = {...state.allSpots, [action.spot.id]: updatedSpot}
       return newState
 
