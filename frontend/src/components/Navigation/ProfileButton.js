@@ -28,6 +28,7 @@ const ProfileButton = ({ user }) => {
   const logoutUser = (e) => {
     e.preventDefault()
     dispatch(logout())
+    history.push('/')
   }
 
   // renders navigation + loggedin profile dropdown menu 
@@ -46,7 +47,7 @@ const ProfileButton = ({ user }) => {
           <div className="profile-dropdown-div-after-loggedin">
 
             <div className="profile-dropdown-session-user-wrapper">
-              {console.log("current session user:", user)}
+
               <div className="profile-dropdown-session-user-detail">{user.username}</div>
               <div className="profile-dropdown-session-user-detail">{user.email}</div>
             </div>

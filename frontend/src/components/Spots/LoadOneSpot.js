@@ -5,6 +5,9 @@ import { useHistory, useParams } from "react-router-dom"
 import { getOneSpot } from "../../store/spots"
 import "./Spots.css"
 
+import ReviewFormModal from "../Reviews/ReviewFormModal"
+import LoadSpotReviews from "../Reviews/LoadSpotReviews"; 
+
 function LoadOneSpot() {
 
   const dispatch = useDispatch()
@@ -86,9 +89,17 @@ function LoadOneSpot() {
                     }
                   </span>
                   <span>{spot.numReviews} reviews</span>
+
+
+                    {/* testing button in the floatbox  */}
+                  {/* <button style={{backgroundColor:'red', color:'white'}}>Create Review</button> */}
+
+
               </div>
             </div>
           </div>
+
+
         </div>
 
         <div className="loadOneSpot-linebreak long"></div>
@@ -104,6 +115,19 @@ function LoadOneSpot() {
         </h2>
 
 
+        {/* only show "create review" button to NON-owner of spot */}
+        <div>
+          {
+            currentUser &&
+            !owner &&
+            <ReviewFormModal spotId={spotId}/>
+          }
+        </div>
+
+        <div className="loadOneSpot-reviews-container">
+          <LoadSpotReviews spotId={spotId}/>
+        </div>
+          
       </div>
     </>
   )

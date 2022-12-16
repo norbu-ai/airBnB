@@ -5,7 +5,6 @@ import * as sessionActions from "../../store/session";
 import './SignupForm.css'; 
 
 function SignupForm({ onClose, setShowSignupModal }) {
-    // form controlled input-fields
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
@@ -45,14 +44,14 @@ function SignupForm({ onClose, setShowSignupModal }) {
 
     return (
 
-      <div className="form-wrapper">
+      <div className="form-modal-wrapper">
 
 
       <form onSubmit={handleSubmit}>
 
-          <div className="modal-top-header">Sign Up</div>
+          <div className="modal-header">Sign Up</div>
           <div className="line-break"></div>
-          <div className="modal-welcome-subheader">Welcome to Yonder</div>
+          <div className="modal-subheader">Welcome to Yonder</div>
   
           <div className="validation-errors">
             {errors.length > 0 &&
@@ -73,7 +72,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
               />
             </label>
 
-            <div className="form-input-line-break"></div>
+            {/* <div className="form-input-line-break"></div> */}
 
             <label className="field">
               Username
@@ -85,7 +84,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
               />
             </label>
 
-            <div className="form-input-line-break"></div>
+            {/* <div className="form-input-line-break"></div> */}
 
             <label className="field">
               First Name
@@ -97,7 +96,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
               />
             </label>
 
-            <div className="form-input-line-break"></div>
+            {/* <div className="form-input-line-break"></div> */}
 
             <label className="field">
               Last Name
@@ -109,7 +108,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
               />
             </label>
 
-            <div className="form-input-line-break"></div>
+            {/* <div className="form-input-line-break"></div> */}
 
             <label className="field">
               Password
@@ -121,7 +120,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
               />
             </label>
 
-            <div className="form-input-line-break"></div>
+            {/* <div className="form-input-line-break"></div> */}
 
             <label className="field">
               Confirm Password
@@ -135,7 +134,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
 
           </div>
 
-          <button className="submit-btn" type="submit">Sign Up</button>
+          <button className="modal-submit-button" type="submit">Sign Up</button>
 
       </form>
 

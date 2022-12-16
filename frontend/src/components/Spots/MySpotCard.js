@@ -64,12 +64,12 @@ function MySpotCard ({spot}) {
                 <button
                 className="myspotcard-buttons"
                 onClick={editSpotHandler}>
-                  Edit Spot
+                  Edit
                 </button>
                 <button
                 className="myspotcard-buttons"
                 onClick={deleteSpotHandler}>
-                  Delete Spot
+                  Delete
                 </button>
               </>
             )}

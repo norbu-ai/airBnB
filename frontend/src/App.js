@@ -11,6 +11,7 @@ import LoadOneSpot from "./components/Spots/LoadOneSpot";
 import CreateSpot from "./components/Spots/CreateSpot";
 import LoadMySpots from "./components/Spots/LoadMySpots";
 import EditSpot from "./components/Spots/EditSpot";
+import LoadMyReviews from "./components/Reviews/LoadMyReviews";
 
 
 function App() {
@@ -48,6 +49,10 @@ function App() {
 
             <Route path="/spots/:spotId">
               <LoadOneSpot />
+            </Route>
+
+            <Route path="/myreviews">
+              <LoadMyReviews />
             </Route>
 
             <Route>

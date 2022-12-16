@@ -25,15 +25,12 @@ function LoginForm({onClose, setShowLoginModal}) {
   }
 
   return (
-
-      <div className="form-wrapper">
-
+    <div className="modal-form-wrapper">
       <form onSubmit={handleSubmit}>
 
-        <div className="modal-top-header">Log In</div>
+        <div className="modal-header">Log In</div>
         <div className="line-break"></div>
-
-        <div className="modal-welcome-subheader">Welcome to Yonder</div>
+        <div className="modal-subheader">Welcome to Yonder</div>
 
         <div className="validation-errors">
           {errors.length > 0 && errors.map((error, idx) => (
@@ -52,7 +49,7 @@ function LoginForm({onClose, setShowLoginModal}) {
             />
           </label>
 
-          <div className="form-input-line-break"></div>
+          {/* <div className="form-input-line-break"></div> */}
 
           <label className="field">
             Password
@@ -64,9 +61,9 @@ function LoginForm({onClose, setShowLoginModal}) {
             />
           </label>
         </div>
-        <button className="submit-btn" type="submit">Log In</button>
+        <button className="modal-submit-button" type="submit">Log In</button>
       </form>
-      </div>
+    </div>
   )
 }
 

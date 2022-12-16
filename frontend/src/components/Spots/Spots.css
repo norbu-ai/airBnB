@@ -175,6 +175,33 @@
 }
 
 
+.loadOneSpot-reviews-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  column-gap: 40px;
+}
+
+
+.loadOneSpot-review-button {
+  cursor: pointer;
+  width: 115px;
+  padding: 3px 10px;
+  margin: 3px 0px 20px 0px;
+  border: 1px rgb(255, 90, 96) solid;
+  border-radius: 4px;
+  background: rgb(255, 90, 96);
+  color: white;
+  font: bold;
+}
+
+.loadOneSpot-review-button:hover {
+  background: white;
+  border: 1px rgb(255, 90, 96) solid;
+  color:rgb(255, 90, 96);
+}
+
+
 
 /*----------- LoadMySpots component css ------------*/
 
@@ -279,9 +306,9 @@
 
 .myspotcard-buttons {
   cursor: pointer;
-  width: 115px;
+  width: 110px;
   padding: 3px 10px;
-  margin: 6px 0px 3px 0px;
+  margin: 6px 3px 3px 0px;
   border: 1px rgb(255, 90, 96) solid;
   border-radius: 4px;
   background: rgb(255, 90, 96);
@@ -294,5 +321,8 @@
   border: 1px rgb(255, 90, 96) solid;
   color:rgb(255, 90, 96);
 }
+
+
+
 
 
