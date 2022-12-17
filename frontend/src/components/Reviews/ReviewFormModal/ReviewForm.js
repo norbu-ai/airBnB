@@ -93,6 +93,9 @@ function ReviewForm ({spotId, setShowModal}) {
                   value={stars}
                   onChange={(e) => setStars(e.target.value)}
                 >
+                  {/* <option value="" selected disabled>
+                    Select a Rating
+                  </option> */}
                   {[1,2,3,4,5].map((num)=>(<option>{num}</option>))}
                 </select>
               </div>

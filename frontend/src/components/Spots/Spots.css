@@ -324,5 +324,90 @@
 
 
 
+/*----------- CreateSpot component css ------------*/
+
+.createSpot-form-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.createSpot-header {
+  margin-bottom: 10px;
+}
+
+.validation-errors {
+  color: red; 
+}
 
 
+.createSpot-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.form-input-break{
+  background-color: rgb(200, 200, 200);
+  height:1px;
+  margin-left: -11px;
+  width: 103%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.createSpot-form-container .form-input-break {
+  width:102.5%;
+}
+
+.createSpot-form-container select {
+  width: 92%;
+  /* margin-left: 13px; */
+}
+.createSpot-form-container input {
+  margin-left: 3px;
+}
+.createSpot-form-container textarea {
+  margin-left: 3px;
+}
+.createSpot-form-container label {
+  color: rgb(255, 90, 96);
+  /* color: gray; */
+  margin-left: 6px;
+}
+
+.form-input-wrapper {
+  border: rgb(200, 200, 200) 1px solid;
+  border-radius: 9px;
+  margin: 15px 25px 25px 25px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+
+.select-country {
+  border: 1px solid grey; 
+  border-radius: 4px;
+  width: 97%;
+  margin: 4px 0px 4px 3px; 
+}
+
+
+.createSpot-submitBtn {
+  width: 99%;
+  padding: 10px;
+  margin: 0px 0px 5px 6px;
+  border: 1px rgb(255, 90, 96) solid;
+  border-radius: 4px;
+  background: rgb(255, 90, 96);
+  color: white;
+  font: bold;
+}
+
+.createSpot-submitBtn:hover {
+  background: white;
+  border: 1px rgb(255, 90, 96) solid;
+  color:rgb(255, 90, 96);
+}

@@ -94,8 +94,8 @@ function CreateSpot() {
 
   return (
 
-    <div className="host-whole-container">
-      <h2 className="host-header-container">
+    <div className="createSpot-form-wrapper">
+      <h2 className="createSpot-header">
         Create Spot
       </h2>
 
@@ -106,8 +106,10 @@ function CreateSpot() {
           }
         </div>
 
-      <div className="host-form-container form-input-wrapper">
+      <div className="createSpot-form-container form-input-wrapper">
         <form onSubmit={handleSubmit}>
+
+
           <label>
             Name:
             <input
@@ -116,7 +118,9 @@ function CreateSpot() {
               onChange={(e) => setName(e.target.value)}
             />
           </label>
-          <div className="form-input-break"></div>
+          {/* <div className="form-input-break"></div> */}
+
+
           <label>
             Address:
             <input
@@ -125,7 +129,9 @@ function CreateSpot() {
               onChange={(e) => setAddress(e.target.value)}
             />
           </label>
-          <div className="form-input-break"></div>
+          {/* <div className="form-input-break"></div> */}
+
+
           <label>
             City:
             <input
@@ -134,7 +140,9 @@ function CreateSpot() {
               onChange={(e) => setCity(e.target.value)}
             />
           </label>
-          <div className="form-input-break"></div>
+          {/* <div className="form-input-break"></div> */}
+
+
           <label>
             State:
             <input
@@ -143,19 +151,23 @@ function CreateSpot() {
               onChange={(e) => setState(e.target.value)}
             />
           </label>
-          <div className="form-input-break"></div>
+          {/* <div className="form-input-break"></div> */}
+
+
           <label>
             Country:
-            <select
-              type="text"
-              value={country}
-              onChange={(e) => setCountry(e.target.value)}
-            >
-              <option value="" selected disabled>
-                Select a Country
-              </option>
-              {countries.map((ele)=>(<option>{ele}</option>))}
-            </select>
+            <div className="select-country">
+              <select
+                type="text"
+                value={country}
+                onChange={(e) => setCountry(e.target.value)}
+                >
+                <option value="" selected disabled>
+                  Select a Country
+                </option>
+                {countries.map((ele)=>(<option>{ele}</option>))}
+              </select>
+            </div>
           </label>
           {/* <label>
             Country:
@@ -181,16 +193,9 @@ function CreateSpot() {
               onChange={(e) => setLng(e.target.value)}
             />
           </label> */}
-          <div className="form-input-break"></div>
-          <label>
-            Description:
-            <textarea
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            />
-          </label>
-          <div className="form-input-break"></div>
+          {/* <div className="form-input-break"></div> */}
+
+
           <label>
             Price:
             <input
@@ -199,7 +204,9 @@ function CreateSpot() {
               onChange={(e) => setPrice(e.target.value)}
             />
           </label>
-          <div className="form-input-break"></div>
+          {/* <div className="form-input-break"></div> */}
+
+
           <label>
             Image URL:
             <input
@@ -208,20 +215,23 @@ function CreateSpot() {
               onChange={(e) => setUrl(e.target.value)}
             />
           </label>
+          {/* <div className="form-input-break"></div> */}
 
-          <div className="form-input-break"></div>
-          <button
-        
-          className="submit-button"
-          >
-            Create
-          </button>
-          <button
-          onClick={cancelHandler}
-          className="submit-button"
-          >
-            Cancel
-          </button>
+
+          <label>
+            Description:
+            <textarea
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
+          {/* <div className="form-input-break"></div> */}
+
+
+          <button className="createSpot-submitBtn">Create</button>
+          <button onClick={cancelHandler} className="createSpot-submitBtn">Cancel</button>
+
         </form>
 
         </div>
