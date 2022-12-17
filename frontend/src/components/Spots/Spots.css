@@ -411,3 +411,81 @@
   border: 1px rgb(255, 90, 96) solid;
   color:rgb(255, 90, 96);
 }
+
+
+
+/*----------- EditSpot component css ------------*/
+
+
+
+.editSpot-form-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.editSpot-header {
+  margin-bottom: 10px;
+}
+
+.validation-errors {
+  color: red; 
+}
+
+
+.editSpot-form-container {
+  display: flex;
+  justify-content: center;
+}
+
+.editSpot-form-container select {
+  width: 92%;
+  /* margin-left: 13px; */
+}
+.editSpot-form-container input {
+  margin-left: 3px;
+}
+.editSpot-form-container textarea {
+  margin-left: 3px;
+}
+.editSpot-form-container label {
+  color: rgb(255, 90, 96);
+  /* color: gray; */
+  margin-left: 6px;
+}
+
+.form-input-wrapper {
+  border: rgb(200, 200, 200) 1px solid;
+  border-radius: 9px;
+  margin: 15px 25px 25px 25px;
+  padding-left: 10px;
+  padding-top: 5px;
+}
+
+.select-country {
+  border: 1px solid grey; 
+  border-radius: 4px;
+  width: 97%;
+  margin: 4px 0px 4px 3px; 
+}
+
+
+.editSpot-submitBtn {
+  width: 97%;
+  padding: 10px;
+  margin: 0px 0px 5px 8px;
+  border: 1px rgb(255, 90, 96) solid;
+  border-radius: 4px;
+  background: rgb(255, 90, 96);
+  color: white;
+  font: bold;
+}
+
+.editSpot-submitBtn:hover {
+  background: white;
+  border: 1px rgb(255, 90, 96) solid;
+  color:rgb(255, 90, 96);
+}

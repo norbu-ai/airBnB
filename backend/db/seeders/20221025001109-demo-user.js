@@ -12,8 +12,8 @@ const UsersData = [
   {
     email: 'demo@user.io', 
     username: 'Demo-lition', 
-    firstName: 'fname1', 
-    lastName: 'lname1', 
+    firstName: 'Demo', 
+    lastName: 'User', 
     hashedPassword: bcrypt.hashSync('password1')
   }, 
   {

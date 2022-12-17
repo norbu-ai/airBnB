@@ -116,8 +116,8 @@ function EditSpot () {
   if (!Object.values(spot).length) return null
 
   return (
-    <div className="host-whole-container">
-      <h2 className="host-header-container">
+    <div className="editSpot-form-wrapper">
+      <h2 className="editSpot-header">
         Edit Your Spot Info:
       </h2>
       <div className="validation-errors">
@@ -127,8 +127,10 @@ function EditSpot () {
           }
       </div>
 
-      <div className="host-form-container form-input-wrapper">
+      <div className="editSpot-form-container form-input-wrapper">
       <form onSubmit={handleSubmit}>
+
+
         <label>
           Name:
           <input
@@ -137,7 +139,8 @@ function EditSpot () {
             onChange={(e) => setName(e.target.value)}
           />
         </label>
-        <div className="form-input-break"></div>
+        {/* <div className="form-input-break"></div> */}
+
         <label>
           Address:
           <input
@@ -146,7 +149,8 @@ function EditSpot () {
             onChange={(e) => setAddress(e.target.value)}
           />
         </label>
-        <div className="form-input-break"></div>
+        {/* <div className="form-input-break"></div> */}
+
         <label>
           City:
           <input
@@ -155,7 +159,8 @@ function EditSpot () {
             onChange={(e) => setCity(e.target.value)}
           />
         </label>
-        <div className="form-input-break"></div>
+        {/* <div className="form-input-break"></div> */}
+
         <label>
           State:
           <input
@@ -164,19 +169,22 @@ function EditSpot () {
             onChange={(e) => setState(e.target.value)}
           />
         </label>
-        <div className="form-input-break"></div>
+        {/* <div className="form-input-break"></div> */}
+
         <label>
           Country:
-          <select
-            type="text"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-          >
-            <option value="" selected disabled>
-              Select a Country
-            </option>
-            {countries.map((ele)=>(<option>{ele}</option>))}
-          </select>
+          <div className="select-country">
+            <select
+              type="text"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              >
+              <option value="" selected disabled>
+                Select a Country
+              </option>
+              {countries.map((ele)=>(<option>{ele}</option>))}
+            </select>
+          </div>
         </label>
         {/* <label>
           Latitude:
@@ -194,16 +202,9 @@ function EditSpot () {
             onChange={(e) => setLng(e.target.value)}
           />
         </label> */}
-        <div className="form-input-break"></div>
-        <label>
-          Description:
-          <textarea
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <div className="form-input-break"></div>
+        {/* <div className="form-input-break"></div> */}
+
+
         <label>
           Price:
           <input
@@ -212,21 +213,22 @@ function EditSpot () {
             onChange={(e) => setPrice(e.target.value)}
           />
         </label>
+        {/* <div className="form-input-break"></div> */}
 
-        <div className="form-input-break"></div>
-        <button
 
-        className="submit-button"
-        >
-          Update
-        </button>
+        <label>
+          Description:
+          <textarea
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </label>
+        {/* <div className="form-input-break"></div> */}
 
-        <button
-        onClick={cancelButton}
-        className="submit-button"
-        >
-          Cancel
-        </button>
+        <button className="editSpot-submitBtn">Update</button>
+        <button onClick={cancelButton} className="editSpot-submitBtn">Cancel</button>
+
       </form>
     </div>
     </div>
