@@ -35,7 +35,8 @@ router.get('/current', requireAuth, async (req, res, next) => {
 
     for(let i = 0; i < reviews.length; i++){
         const reviewObj = reviews[i].toJSON();
-        console.log('yeshi each review object: ', reviewObj)
+        // console.log('yeshi each review object: ', reviewObj)
+
         const previewImgUrlObj = reviewObj.Spot.SpotImages[0];
         // console.log('yeshi: ', previewImgUrlObj)
         if(previewImgUrlObj) reviewObj.Spot.previewImage = previewImgUrlObj.url;
