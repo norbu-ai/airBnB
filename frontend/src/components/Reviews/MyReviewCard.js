@@ -91,11 +91,3 @@ const MyReviewCard = ({review}) => {
 
 export default MyReviewCard; 
 
-  // review prop looks like this:
-
-  // { id, userId, spotId, review, stars,
-  //   User: { id, firstName, lastName },
-  //   Spot: { id, ownerId, add, city, state, coun,
-  //           lat, lng, name, price,
-  //           previewImage },
-  //   ReviewImages: [ { id, url }, {}, {} ] }

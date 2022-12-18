@@ -8,7 +8,6 @@ import "./Spots.css"
 const LoadAllSpots = () => {
   const dispatch = useDispatch()
   const allSpots = useSelector((state)=> state.spots.allSpots); 
-  console.log(allSpots)
 
   const allSpotsArr = Object.values(allSpots); 
 

@@ -24,13 +24,17 @@
   background-color: white;
   margin-right: 5%;
   color: red; 
-  transition: box-shadow 0.5s;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 15px;
+  /* transition: box-shadow 0.1s; */
 }
 
 .become-host-button:hover {
   cursor: pointer; 
   box-shadow: 1px 2px 5px rgb(255, 90, 96, 0.7);
-  border-radius: 10px;
+  border-radius: 18px;
+  background-color: white;
   /* box-shadow: 1px 2px 5px rgb(187, 200, 228, 0.7); */
   cursor: pointer;
 }

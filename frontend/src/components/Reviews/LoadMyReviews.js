@@ -11,6 +11,7 @@ function LoadMyReviews() {
   const currentUser = useSelector((state) => state.session.user)
   const reviewsObj = useSelector((state) => state.reviews.user) 
   const reviewsArr = Object.values(reviewsObj) 
+  console.log('my reviews in array: ', reviewsArr)
 
   useEffect(() => {
     dispatch(getUserReviews())
@@ -53,12 +54,3 @@ export default LoadMyReviews;
 
 
 
-
-// user: {
-//     [reviewId]: { id, userId, spotId, review, stars,
-//                   User: { id, firstName, lastName },
-//                   Spot: { id, ownerId, add, city, state, coun,
-//                           lat, lng, name, price,
-//                           previewImage },
-//                   ReviewImages: [ { id, url }, {}, {} ] }
-//   }

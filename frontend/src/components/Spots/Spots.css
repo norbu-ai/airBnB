@@ -53,6 +53,10 @@
   font-weight: bolder;
 }
 
+.spotCard-spot-country {
+  font-size: 14px;
+  color: rgb(171, 178, 193);
+}
 
 .spotCard-spot-price {
   font-weight: bolder;
@@ -131,6 +135,8 @@
 }
 
 .loadOneSpot-floatbox {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   border-radius: 10px;
   border: solid rgb(187, 200, 228, 0.3) 0.1px;
@@ -146,6 +152,7 @@
   justify-content: space-between;
   margin-left: 6px;
   margin-right: 30px;
+  height: 60px;
 }
 
 .loadOneSpot-floatbox-price {
@@ -161,6 +168,20 @@
   font-weight: bolder;
   font-size: 14px;
 }
+
+
+/* .reserve-button {
+  background-color: 'red';
+  color: 'white';
+  margin-top: 50; 
+  margin-left: 90;
+  font-size: 15; 
+  font-weight: 'bolder'; 
+  padding: '8px 18px'; 
+  border-radius: '18px'; 
+  border: 'none'
+} */
+
 
 .bold {
   font-weight: bolder;
@@ -281,6 +302,10 @@
   font-weight: bolder;
 }
 
+.myspotcard-spot-country {
+  font-size: 14px;
+  color: rgb(171, 178, 193);
+}
 
 /* .myspotcard-spot-rating {
   font-weight: bolder;

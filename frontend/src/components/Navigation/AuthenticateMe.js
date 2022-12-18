@@ -25,6 +25,7 @@ const AuthenticateMe = ({setShowLoginModal, setShowSignupModal}) => {
       <div className="nav-earth-profile-div">
 
       <div className="globe-login">
+          <button className="become-host-button" onClick={()=>alert('upcoming feature!')}>Become a Host</button>
           <i className='fa fa-globe' onClick={()=>alert("upcoming feature!")} />
           <button onClick={openMenu} className="profile-login-btn-div-with-icons">
               <i id='bars' className="fa-solid fa-bars"></i>

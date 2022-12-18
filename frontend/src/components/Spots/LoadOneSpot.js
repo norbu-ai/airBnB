@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { getOneSpot } from "../../store/spots"
 import "./Spots.css"
+import noimage from "./no_image.jpeg"; 
 
 import ReviewFormModal from "../Reviews/ReviewFormModal"
 import LoadSpotReviews from "../Reviews/LoadSpotReviews"; 
@@ -15,13 +16,13 @@ function LoadOneSpot() {
 
   const spot = useSelector((state)=>{
     return state.spots.singleSpot
-  }) 
+  }); 
+
 
   useEffect(() => {
+    // spotId parameter used here
     dispatch(getOneSpot(+spotId))
   }, [dispatch, spotId])
-
-
 
   const currentUser = useSelector((state) => state.session.user)
   let owner = false
@@ -49,8 +50,8 @@ function LoadOneSpot() {
         <div className="loadOneSpot-header-div-above-image">
           <div className="loadOneSpot-header-name"><h1>{spot.name}</h1></div>
           <div className="loadOneSpot-header-detail">
-              {spot.avgRating ?
-                (<span>★ {spot.avgRating}  ·  </span>):
+              {spot.avgStarRating ?
+                (<span>★ {spot.avgStarRating}  ·  </span>):
                 (<span>★ New!  ·  </span>)
               }
               <span>{spot.numReviews} reviews  ·  </span>
@@ -62,10 +63,16 @@ function LoadOneSpot() {
 
         <div className="loadOneSpot-images-container">
           <div>
-            {
+            {/* {
               previewImage &&
               <img className="loadOneSpot-previewImage"
               alt={spot.name} src={previewImage.url}/>
+            } */}
+            {
+              previewImage ?
+              (<img className="loadOneSpot-previewImage"
+              alt={spot.name} src={previewImage.url}/>): 
+              (<img src={noimage} alt="no image" />)
             }
           </div>
         </div>
@@ -79,12 +86,13 @@ function LoadOneSpot() {
           </div>
 
           <div className="loadOneSpot-floatbox">
+
             <div className="loadOneSpot-floatbox-header">
               <div><span className="loadOneSpot-floatbox-price">${spot.price}</span> night</div>
               <div className="loadOneSpot-floatbox-review">
                   <span>
-                    {spot.avgRating ?
-                      (<span className="bold">★ {spot.avgRating}  ·   </span>):
+                    {spot.avgStarRating ?
+                      (<span className="bold">★ {spot.avgStarRating}  ·   </span>):
                       (<span style={{color:'red'}} className="bold">★ New!  ·   </span>)
                     }
                   </span>
@@ -94,20 +102,58 @@ function LoadOneSpot() {
                     {/* testing button in the floatbox  */}
                   {/* <button style={{backgroundColor:'red', color:'white'}}>Create Review</button> */}
 
-
               </div>
             </div>
+
+            <button style={{
+              display: 'flex', 
+              backgroundColor: 'rgb(255, 90, 96)',
+              border: '1px rgb(255, 90, 96) solid',
+              color: 'white', 
+              marginTop: 20, 
+              marginRight: 80, 
+              marginLeft: 70, 
+              fontSize: 15, 
+              fontWeight: 'bolder', 
+              paddingLeft: 25,
+              paddingTop: 5, 
+              borderRadius: '6px', 
+              border: 'none', 
+              height: 35, 
+              width: 110
+            }}
+            onClick={()=>alert('booking feature coming soon!')}
+            >Reserve</button>
+
+
+            {/* <form>
+              <div>
+              <label>
+                <input />CHECK-IN
+              </label>
+              <label>
+                <input />CHECKOUT
+              </label>
+              </div>
+              <label>GUESTS
+                <select disabled>
+                  <option>1 guest</option>
+                </select>
+              </label>
+            </form>
+            <button>Reserve</button> */}
+
+
+
           </div>
-
-
         </div>
 
         <div className="loadOneSpot-linebreak long"></div>
 
         <h2 className="loadOneSpot-review-header">
             <span>
-            {spot.avgRating ?
-              (<span className="bold">★ {spot.avgRating}  ·   </span>):
+            {spot.avgStarRating ?
+              (<span className="bold">★ {spot.avgStarRating}  ·   </span>):
               (<span className="bold">★ New  ·   </span>)
             }
             </span>

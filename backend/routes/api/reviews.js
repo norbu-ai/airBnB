@@ -14,39 +14,57 @@ router.get('/current', requireAuth, async (req, res, next) => {
     const reviews = await Review.findAll({
         where: {userId: req.user.id},
         include: [
-            {
-            model: User,
-            attributes: ['id', 'firstName', 'lastName']
-        },{
-            model: Spot,
-            attributes: {
-                exclude: ['description', 'createdAt', 'updatedAt']
-            },
-            include: {
+            { model: User, attributes: ['id', 'firstName', 'lastName'] },
+            { 
+              model: Spot, 
+              attributes: { exclude: ['description', 'createdAt', 'updatedAt'] },
+              include: {
                 model: SpotImage,
+                attributes: ['url'],
                 where: {
-                    preview: true
+                  preview: true
                 },
                 limit: 1,
-                attributes: ['url']
-            }
-        },
-        {
-            model: ReviewImage,
-            attributes: ['id', 'url']
-        }]
+              }
+            }, 
+
+            { model: ReviewImage, attributes: ['id', 'url'] }, 
+      ]
     });
 
 
     for(let i = 0; i < reviews.length; i++){
         const reviewObj = reviews[i].toJSON();
+        console.log('yeshi each review object: ', reviewObj)
         const previewImgUrlObj = reviewObj.Spot.SpotImages[0];
+        // console.log('yeshi: ', previewImgUrlObj)
         if(previewImgUrlObj) reviewObj.Spot.previewImage = previewImgUrlObj.url;
-        else reviewObj.Spot.previewImage = null;
+        else reviewObj.Spot.previewImage = 'no image';
         delete reviewObj.Spot.SpotImages;
         reviews[i] = reviewObj;
     }
     return res.json({Reviews: reviews});
+
+
+
+  // let reviewList = []
+
+  // for (let i = 0; i < reviews.length; i++) {
+  //   const reviewObj = reviews[i].toJSON()
+
+  //   if (!reviewObj.Spot.SpotImages) {
+  //     reviewObj.Spot.previewImage = "no image"
+  //   } else {
+  //     reviewObj.Spot.previewImage = reviewObj.Spot.SpotImages[0].url
+  //   }
+
+  //   delete reviewObj.Spot.SpotImages 
+
+  //   reviewList.push(reviewObj)
+  // }
+
+  // return res.json({ Reviews: reviewList })
+
 });
 
 

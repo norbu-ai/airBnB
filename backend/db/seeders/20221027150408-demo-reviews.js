@@ -11,7 +11,7 @@ const ReviewsData = [
   {
     spotId: 1, 
     userId: 5, 
-    review: 'neighborhood here is actually better - livelier with tons of restaurants, music in the summer, a great park down the street',
+    review: 'Neighborhood here is actually better - livelier with tons of restaurants, music in the summer, a great park down the street',
     stars: 3, 
   }, 
   {
@@ -47,7 +47,7 @@ const ReviewsData = [
   {
     spotId: 8, 
     userId: 3, 
-    review: 'about average community in the south SJ. Apartment was not cleaned properly at the move-in. ',
+    review: 'About average community in the south SJ. Apartment was not cleaned properly at the move-in. ',
     stars: 3, 
   }, 
   {
@@ -67,6 +67,66 @@ const ReviewsData = [
     userId: 6, 
     review: 'People park where they want without the cars be registered. Need to be more strict those policies. ',
     stars: 3, 
+  }, 
+  {
+    spotId: 4, 
+    userId: 7, 
+    review: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 3, 
+  }, 
+  {
+    spotId: 11, 
+    userId: 9, 
+    review: 'Crid ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 4, 
+  }, 
+  {
+    spotId: 7, 
+    userId: 11, 
+    review: 'Thraxught ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 3, 
+  }, 
+  {
+    spotId: 1, 
+    userId: 4, 
+    review: 'Muluxant ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 4, 
+  }, 
+  {
+    spotId: 3, 
+    userId: 5, 
+    review: 'Numination ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 4, 
+  }, 
+  {
+    spotId: 11, 
+    userId: 8, 
+    review: 'Frudient ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 5, 
+  }, 
+  {
+    spotId: 7, 
+    userId: 10, 
+    review: 'Hudoughmi ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 3, 
+  }, 
+  {
+    spotId: 9, 
+    userId: 11, 
+    review: 'Awesome ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 4, 
+  }, 
+  {
+    spotId: 2, 
+    userId: 6, 
+    review: 'Undomulating ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 3, 
+  }, 
+  {
+    spotId: 4, 
+    userId: 10, 
+    review: 'Phunixan ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 4, 
   }
 ]; 
 
