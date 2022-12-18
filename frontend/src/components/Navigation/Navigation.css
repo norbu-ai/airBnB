@@ -11,6 +11,31 @@
   margin: -50px 0px 0px 0px;
 }
 
+.globe-login {
+  display: flex; 
+  flex-direction: row; 
+}
+
+
+.become-host-button {
+  border: none; 
+  width: 10rem;
+  height: 2.5rem;
+  background-color: white;
+  margin-right: 5%;
+  color: red; 
+  transition: box-shadow 0.5s;
+}
+
+.become-host-button:hover {
+  cursor: pointer; 
+  box-shadow: 1px 2px 5px rgb(255, 90, 96, 0.7);
+  border-radius: 10px;
+  /* box-shadow: 1px 2px 5px rgb(187, 200, 228, 0.7); */
+  cursor: pointer;
+}
+
+
 .profile-login-btn-div-with-icons {
   width: 70px;
   height: 40px;
@@ -22,7 +47,7 @@
 }
 
 .profile-login-btn-div-with-icons:hover {
-  box-shadow: 1px 2px 5px rgb(255, 90, 96, 0.7);;
+  box-shadow: 1px 2px 5px rgb(255, 90, 96, 0.7);
   /* box-shadow: 1px 2px 5px rgb(187, 200, 228, 0.7); */
   cursor: pointer;
 }
@@ -42,6 +67,18 @@
   margin-right: 8px;
 
 }
+
+.fa-globe {
+  color: red; 
+  margin-right: 25px; 
+  margin-top: 12px; 
+  background-color: white;
+}
+
+.fa-globe:hover {
+  cursor: pointer;
+}
+
 
 .profile-dropdown-div-after-loggedin {
   border: solid rgb(187, 200, 228, 0.3) 0.1px;
@@ -126,6 +163,19 @@
   margin-left: 10vw;
   width: 130px;
 }
+
+.logo-name {
+  display: flex;
+}
+
+.logo-name span {
+  padding-top: 25px; 
+  margin-left: 5px; 
+  color: red; 
+  font-weight: bolder;
+  font-size: 25px;
+}
+
 
 .nav-break-line {
   background-color: rgb(187, 200, 228, 0.3);

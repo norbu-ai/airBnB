@@ -68,7 +68,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                // required
+                required
               />
             </label>
 
@@ -80,7 +80,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                // required
+                required
               />
             </label>
 
@@ -92,7 +92,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstname(e.target.value)}
-                // required
+                required
               />
             </label>
 
@@ -104,7 +104,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastname(e.target.value)}
-                // required
+                required
               />
             </label>
 
@@ -116,7 +116,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                // required
+                required
               />
             </label>
 
@@ -128,7 +128,7 @@ function SignupForm({ onClose, setShowSignupModal }) {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                // required
+                required
               />
             </label>
 

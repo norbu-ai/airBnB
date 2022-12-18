@@ -24,10 +24,13 @@ const AuthenticateMe = ({setShowLoginModal, setShowSignupModal}) => {
     <>
       <div className="nav-earth-profile-div">
 
-        <button onClick={openMenu} className="profile-login-btn-div-with-icons">
-            <i id='bars' className="fa-solid fa-bars"></i>
-            <i className="fa-solid fa-user"></i>
-        </button>
+      <div className="globe-login">
+          <i className='fa fa-globe' onClick={()=>alert("upcoming feature!")} />
+          <button onClick={openMenu} className="profile-login-btn-div-with-icons">
+              <i id='bars' className="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-user"></i>
+          </button>
+        </div>
 
         {
           showMenu && (

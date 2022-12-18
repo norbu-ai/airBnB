@@ -34,12 +34,17 @@ const ProfileButton = ({ user }) => {
   // renders navigation + loggedin profile dropdown menu 
   return (
     <>
-      <div className="nav-earth-profile-div">
 
-        <button onClick={openMenu} className="profile-login-btn-div-with-icons">
-            <i id='bars' className="fa-solid fa-bars"></i>
-            <i className="fa-solid fa-user"></i>
-        </button>
+      <div className="nav-earth-profile-div">
+      
+        <div className="globe-login">
+          <button className="become-host-button" onClick={()=>alert('upcoming feature!')}>Airbnb your home</button>
+          <i className='fa fa-globe' onClick={()=>alert("upcoming feature!")} />
+          <button onClick={openMenu} className="profile-login-btn-div-with-icons">
+              <i id='bars' className="fa-solid fa-bars"></i>
+              <i className="fa-solid fa-user"></i>
+          </button>
+        </div>
 
         {
           showMenu && (

@@ -363,7 +363,7 @@
 }
 
 .createSpot-form-container select {
-  width: 92%;
+  width: 98%;
   /* margin-left: 13px; */
 }
 .createSpot-form-container input {
@@ -396,7 +396,7 @@
 
 
 .createSpot-submitBtn {
-  width: 99%;
+  width: 98%;
   padding: 10px;
   margin: 0px 0px 5px 6px;
   border: 1px rgb(255, 90, 96) solid;

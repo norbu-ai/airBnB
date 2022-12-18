@@ -41,6 +41,7 @@ function CreateSpot() {
     setErrors([])
     setHasSubmitted(true)
 
+
     let errorsArr = []
 
     if (!address.length) errorsArr.push("please enter street address")
@@ -49,10 +50,13 @@ function CreateSpot() {
     if (!country.length) errorsArr.push("please select a country")
     // if (!lat.length || lat > 90 || lat < -90) errorsArr.push("please enter a valid latitude between -90 and 90")
     // if (!lng.length || lng > 180 || lng < -180) errorsArr.push("please enter a valid longitude between -180 and 180")
-    if (!name.length || name.length > 50) errorsArr.push("please enter a valid name fewer than 50 characters long")
-    if (!description.length || description.length > 255) errorsArr.push("please enter a valid description fewer than 255 characters long")
+    if (!name.length || name.length > 50) errorsArr.push("please enter a valid name")
+    if (description.length <= 0) errorsArr.push("description must be filled")
+      
     if (!price || price <=0) errorsArr.push("please enter a valid price greater than 0")
-    if (!url.length || url.length > 255 || !url.includes(".jpg"||".jpeg"||".png"||".gif")) errorsArr.push("please enter a valid image url fewer than 255 characters long")
+    if (!url) errorsArr.push("please enter an image url")
+    
+    // if (url.length && (url.length > 255 || !url.includes(".jpg"||".jpeg"||".png"||".gif"))) errorsArr.push("only .jpg images are accepted")
 
     setErrors(errorsArr)
 
@@ -60,10 +64,10 @@ function CreateSpot() {
     const imageInfo = ({ url, preview: true})
 
     const newSpot = await dispatch(createNewSpot(spotInfo, imageInfo))
-      .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors.length) setErrors(data.errors);
-        })
+      // .catch(async (res) => {
+      //     const data = await res.json();
+      //     if (data && data.errors.length) setErrors(data.errors);
+      //   })
 
     if (newSpot) {
       await dispatch(addSpotImage(newSpot.id, imageInfo))
@@ -116,6 +120,7 @@ function CreateSpot() {
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              required
             />
           </label>
           {/* <div className="form-input-break"></div> */}
@@ -127,6 +132,7 @@ function CreateSpot() {
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
+              required
             />
           </label>
           {/* <div className="form-input-break"></div> */}
@@ -138,6 +144,7 @@ function CreateSpot() {
               type="text"
               value={city}
               onChange={(e) => setCity(e.target.value)}
+              required
             />
           </label>
           {/* <div className="form-input-break"></div> */}
@@ -149,6 +156,7 @@ function CreateSpot() {
               type="text"
               value={state}
               onChange={(e) => setState(e.target.value)}
+              required
             />
           </label>
           {/* <div className="form-input-break"></div> */}
@@ -161,6 +169,7 @@ function CreateSpot() {
                 type="text"
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
+                required
                 >
                 <option value="" selected disabled>
                   Select a Country
@@ -202,6 +211,7 @@ function CreateSpot() {
               type="number"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              required
             />
           </label>
           {/* <div className="form-input-break"></div> */}
@@ -210,9 +220,10 @@ function CreateSpot() {
           <label>
             Image URL:
             <input
-              type="text"
+              type="url"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
+              required
             />
           </label>
           {/* <div className="form-input-break"></div> */}
@@ -224,6 +235,7 @@ function CreateSpot() {
               type="text"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
+              required
             />
           </label>
           {/* <div className="form-input-break"></div> */}

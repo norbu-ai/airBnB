@@ -25,6 +25,10 @@
   padding-left: 3px;
 }
 
+.review-field select {
+  width: 98%
+}
+
 select {
   /* color: rgb(255, 90, 96); */
   /* width: 12%; */
@@ -72,9 +76,6 @@ textarea:focus {
   margin: 4px 0px 10px 0px;
   border: 1px solid grey; 
   height: 30px;  */
-
-
-
   border: 1px solid grey; 
   border-radius: 4px;
   width: 97%;

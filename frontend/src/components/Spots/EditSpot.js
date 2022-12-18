@@ -71,7 +71,7 @@ function EditSpot () {
     if (!name.length || name.length > 50) errorsArr.push("please enter a valid name fewer than 50 characters long")
     if (!description.length) errorsArr.push("please enter a description")
     if (!price || price <= 0) errorsArr.push("please enter a valid price greater than 0")
-    // if (!url.length || url.length > 255) errorsArr.push("please enter a valid image url fewer than 255 characters long")
+    // if (!url.length || url.length > 255) errorsArr.push("please enter a valid image url")
 
     setErrors(errorsArr)
 

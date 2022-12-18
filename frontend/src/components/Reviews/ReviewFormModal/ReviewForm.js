@@ -33,7 +33,9 @@ function ReviewForm ({spotId, setShowModal}) {
     const errorsArr = []
 
     if (!review.length || review.length > 255) errorsArr.push("please enter a valid review fewer than 255 characters long")
-    if (url.length && (url.length > 255 || !url.includes(".jpeg"||".jpg"||".png"||".gif"))) errorsArr.push("please enter a valid url fewer than 255 characters long")
+    if (!url) errorsArr.push("please enter an image url")
+    // if (url.length && (url.length > 255 || !url.includes(".jpg"||".jpeg"||".png"||".gif"))) errorsArr.push("please enter an image url")
+    
 
     setErrors(errorsArr)
 
@@ -93,9 +95,9 @@ function ReviewForm ({spotId, setShowModal}) {
                   value={stars}
                   onChange={(e) => setStars(e.target.value)}
                 >
-                  {/* <option value="" selected disabled>
+                  <option value="" selected disabled>
                     Select a Rating
-                  </option> */}
+                  </option>
                   {[1,2,3,4,5].map((num)=>(<option>{num}</option>))}
                 </select>
               </div>
@@ -107,7 +109,7 @@ function ReviewForm ({spotId, setShowModal}) {
             <label className="review-field">
               Image URL:
               <input
-                type="text"
+                type="url"
                 value={url}
                 // placeholder="(optional)"
                 onChange={(e) => setUrl(e.target.value)}

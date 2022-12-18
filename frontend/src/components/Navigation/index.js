@@ -41,9 +41,11 @@ const Navigation = ({ isLoaded }) => {
           setShowSignupModal={setShowSignupModal}
         />
 
-          <NavLink exact to="/">
-            <img className="logo" src={logo} />
-            {/* <span className='logo-text'>Yonder</span> */}
+          <NavLink exact to="/" style={{textDecoration:'none'}}>
+            <div className='logo-name'>
+              <img className="logo" src={logo} />
+              <span>Yonder</span>
+            </div>
           </NavLink>
   
 
