@@ -6,6 +6,7 @@ import MySpotCard from "./MySpotCard"
 import "./Spots.css"
 
 
+
 function LoadMySpots() {
 
   const dispatch = useDispatch()

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { getOneSpot } from "../../store/spots"
 import "./Spots.css"
-import noimage from "./no_image.jpeg"; 
+import noimage from "./noimage.jpeg"; 
 
 import ReviewFormModal from "../Reviews/ReviewFormModal"
 import LoadSpotReviews from "../Reviews/LoadSpotReviews"; 
@@ -18,11 +18,15 @@ function LoadOneSpot() {
     return state.spots.singleSpot
   }); 
 
+  const reviews = useSelector((state) => {
+    return state.reviews.spot
+  })
+
 
   useEffect(() => {
     // spotId parameter used here
     dispatch(getOneSpot(+spotId))
-  }, [dispatch, spotId])
+  }, [dispatch, spotId, reviews])
 
   const currentUser = useSelector((state) => state.session.user)
   let owner = false
@@ -42,6 +46,19 @@ function LoadOneSpot() {
     displayImages.splice(0,1)
   } 
 
+  // new stuff
+  else {
+    displayImages.splice(displayImages.indexOf(previewImage),1)
+  }
+
+  let nonPreviewCount = displayImages.length
+  if (nonPreviewCount < 4) {
+    for (let i = 3; i >= nonPreviewCount; i--) {
+      displayImages[i] = { "url" : noimage }
+    }
+  }
+
+  // all above is new stuff 
 
   return (
     <>

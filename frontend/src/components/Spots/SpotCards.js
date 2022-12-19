@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import noimage from './noimage.jpeg'; 
 import "./Spots.css"
 
 
@@ -11,7 +12,7 @@ function SpotCards({spot}) {
         <div className="spotCard-image-container">
         {spot.previewImage ?
           (<div><img src={spot.previewImage} /></div>) :
-          (<div><img src='image' alt="noimage" /></div>)
+          (<div><img src={noimage} alt="noimage" /></div>)
         }
         </div>
 

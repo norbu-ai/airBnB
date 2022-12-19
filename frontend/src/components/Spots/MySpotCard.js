@@ -1,6 +1,7 @@
 import { Link, useHistory } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { editSpot, removeSpot } from "../../store/spots"
+import { editSpot, getOneSpot, removeSpot } from "../../store/spots"
+import noimage from './noimage.jpeg'; 
 import "./Spots.css"
 
 function MySpotCard ({spot}) {
@@ -23,6 +24,10 @@ function MySpotCard ({spot}) {
     history.push(`/myspots/edit/${spot.id}`)
   }
 
+  // const spotToEdit = async() => {
+  //   await dispatch(getOneSpot(spot.id))
+  // }
+
 
   return (
     <div>
@@ -31,7 +36,7 @@ function MySpotCard ({spot}) {
       <div className="spotCard-image-container">
         {spot.previewImage ?
           (<div><img src={spot.previewImage} /></div>) :
-          (<div><img src='image' alt="noimage" /></div>)
+          (<div><img src={noimage} alt="noimage" /></div>)
         }
         </div>
 
