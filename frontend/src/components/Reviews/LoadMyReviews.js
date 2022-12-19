@@ -32,7 +32,9 @@ function LoadMyReviews() {
             <h1>My Reviews</h1>
             <h4>You Don't Have Any Reviews!</h4>
           </>):
-          <h1>My Reviews</h1>
+          <h1 style={{
+            textAlign: 'center'
+          }}>My Reviews</h1>
         }
       </div>
 

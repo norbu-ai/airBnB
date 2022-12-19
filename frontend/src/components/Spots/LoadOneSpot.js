@@ -119,7 +119,7 @@ function LoadOneSpot() {
 
             <div style={{
               color:'red', 
-              padding: '0px 18px'
+              padding: '0px 18px 13px 18px'
               }}>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
 
             {/* <button style={{
