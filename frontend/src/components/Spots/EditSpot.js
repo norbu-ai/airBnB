@@ -77,7 +77,7 @@ function EditSpot () {
 
     const spotInfo = {
       ...spot,
-      address, city, state, country, name, description, price, url: spot.spotImages[0].url
+      address, city, state, country, name, description, price, url: spot.SpotImages[0].url
     }
 
 
