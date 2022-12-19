@@ -117,14 +117,19 @@ function LoadOneSpot() {
               </div>
             </div>
 
-            <button style={{
+            <div style={{
+              color:'red', 
+              padding: '0px 18px'
+              }}>Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</div>
+
+            {/* <button style={{
               display: 'flex', 
               backgroundColor: 'rgb(255, 90, 96)',
               border: '1px rgb(255, 90, 96) solid',
               color: 'white', 
               marginTop: 20, 
               marginRight: 80, 
-              marginLeft: 75, 
+              marginLeft: 120, 
               fontSize: 15, 
               fontWeight: 'bolder', 
               paddingLeft: 25,
@@ -135,7 +140,7 @@ function LoadOneSpot() {
               width: 110
             }}
             onClick={()=>alert('booking feature coming soon!')}
-            >Reserve</button>
+            >Reserve</button> */}
 
 
             {/* <form>
