@@ -30,6 +30,7 @@
   overflow: hidden;
   position: relative;
   border-radius: 15px;
+  border: 1px solid red; 
 }
 
 .spotCard-image-container img {
@@ -105,6 +106,7 @@
 }
 
 .loadOneSpot-previewImage {
+  display: block; 
   max-height: 450px;
   object-fit: cover;
   width: 100%;

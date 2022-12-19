@@ -12,7 +12,7 @@ function SpotCards({spot}) {
         <div className="spotCard-image-container">
         {spot.previewImage ?
           (<div><img src={spot.previewImage} /></div>) :
-          (<div><img src={noimage} alt="noimage" /></div>)
+          (<div><img src={noimage} alt="image not available" /></div>)
         }
         </div>
 

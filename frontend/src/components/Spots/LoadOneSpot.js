@@ -37,17 +37,13 @@ function LoadOneSpot() {
 
 
   let displayImages = [...spot.spotImages]
-
   let previewImage = displayImages.find((image)=>{
     return image.preview===true
   })
   if (!previewImage) {
     previewImage = displayImages[0]
     displayImages.splice(0,1)
-  } 
-
-  // new stuff
-  else {
+  } else {
     displayImages.splice(displayImages.indexOf(previewImage),1)
   }
 
@@ -58,7 +54,6 @@ function LoadOneSpot() {
     }
   }
 
-  // all above is new stuff 
 
   return (
     <>
@@ -89,7 +84,7 @@ function LoadOneSpot() {
               previewImage ?
               (<img className="loadOneSpot-previewImage"
               alt={spot.name} src={previewImage.url}/>): 
-              (<img src={noimage} alt="no image" />)
+              (<img src={noimage} alt="image not available" />)
             }
           </div>
         </div>
@@ -129,7 +124,7 @@ function LoadOneSpot() {
               color: 'white', 
               marginTop: 20, 
               marginRight: 80, 
-              marginLeft: 70, 
+              marginLeft: 75, 
               fontSize: 15, 
               fontWeight: 'bolder', 
               paddingLeft: 25,

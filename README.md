@@ -40,14 +40,14 @@ Yonder is a website inspired by [AirBnB](https://airbnb.com/). It provides lodgi
 
 ## Spot Detail Page
 
-![image](https://user-images.githubusercontent.com/17817050/197360469-06f41448-2378-4486-b476-5f964f6fe5e8.png)
-![image](https://user-images.githubusercontent.com/17817050/197360483-959c8035-9cbf-4d19-bbcd-0db3a4638365.png)
+![image](https://user-images.githubusercontent.com/105009371/208353411-1144bc9c-8d5a-4dd1-9345-7e9a980eeb9b.png)
+![image](https://user-images.githubusercontent.com/105009371/208353398-0a2fc221-0025-4df1-ba8c-d65002cf38fc.png)
 
 ## Create a Review
 
 If you are logged in, and you are NOT the owner of the property, you will see the "create review" button on the spot detail page.
 
-![image](https://user-images.githubusercontent.com/17817050/197360575-404fa39f-7165-49c6-97c2-2b11a4e4d970.png)
+![image](https://user-images.githubusercontent.com/105009371/208353557-93c6ce9b-9f37-41d5-989e-86286ea4bbde.png)
 
 ## Host a Spot
 
@@ -60,7 +60,7 @@ If you are logged in, and you are NOT the owner of the property, you will see th
 
 ## My Reviews (Delete)
 
-![image](https://user-images.githubusercontent.com/17817050/197361095-56becb84-3baf-411d-923e-0abb97e41935.png)
+![image](https://user-images.githubusercontent.com/105009371/208353792-a24c9fa9-db2e-462a-84bf-362438e3876b.png)
 
 ## My Contact Info:
 
