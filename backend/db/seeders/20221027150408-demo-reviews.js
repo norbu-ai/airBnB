@@ -27,7 +27,7 @@ const ReviewsData = [
     stars: 3, 
   }, 
   {
-    spotId: 5, 
+    spotId: 4, 
     userId: 1, 
     review: 'Poor move-in experience, unit was basically a disaster. Doors missing, toilet a mess, kitchen cabinet doors misaligned, bike storage is a cluster.',
     stars: 2, 
@@ -43,6 +43,12 @@ const ReviewsData = [
     userId: 2, 
     review: 'This is a fantastic place to live. It has great amenities, the staff is very friendly and helpful, and with the location you have convenient access to both the freeways and shopping centers. ',
     stars: 5, 
+  }, 
+  {
+    spotId: 11, 
+    userId: 2, 
+    review: 'Hostunic ipsum, dolor sit amet consectetur adipisicing elit. Quasi fuga eum quos unde dolorem doloribus temporibus provident. Fugit, ab deleniti.',
+    stars: 4, 
   }, 
   {
     spotId: 8, 

@@ -10,8 +10,11 @@ function LoadMyReviews() {
   const dispatch = useDispatch()
   const currentUser = useSelector((state) => state.session.user)
   const reviewsObj = useSelector((state) => state.reviews.user) 
+
+  // console.log('yeshi look: ', currentUser)
   const reviewsArr = Object.values(reviewsObj) 
-  console.log('my reviews in array: ', reviewsArr)
+
+  // console.log('my reviews in array: ', reviewsArr)
 
   useEffect(() => {
     dispatch(getUserReviews())

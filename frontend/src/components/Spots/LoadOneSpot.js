@@ -36,7 +36,7 @@ function LoadOneSpot() {
   if (!Object.values(spot).length) return null
 
 
-  let displayImages = [...spot.spotImages]
+  let displayImages = [...spot.SpotImages]
   let previewImage = displayImages.find((image)=>{
     return image.preview===true
   })

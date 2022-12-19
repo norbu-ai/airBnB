@@ -129,7 +129,7 @@ router.get('/:spotId', async(req, res, next) => {
         spotDetail.numReviews = await Review.count({ where: { spotId: spot.id }}); 
         const reviewSum = await Review.sum('stars', { where: {spotId: spot.id}}); 
         spotDetail.avgStarRating = reviewSum / spotDetail.numReviews; 
-        spotDetail.spotImages = await SpotImage.findAll({
+        spotDetail.SpotImages = await SpotImage.findAll({
             where: {spotId: spot.id}, 
             attributes: ['id', 'url', 'preview']
         })

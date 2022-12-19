@@ -11,40 +11,97 @@ const { User, Spot, SpotImage, Review, ReviewImage, Booking, sequelize } = requi
 
 // get reviews of current user 
 router.get('/current', requireAuth, async (req, res, next) => {
-    const reviews = await Review.findAll({
-        where: {userId: req.user.id},
-        include: [
-            { model: User, attributes: ['id', 'firstName', 'lastName'] },
-            { 
-              model: Spot, 
-              attributes: { exclude: ['description', 'createdAt', 'updatedAt'] },
-              include: {
-                model: SpotImage,
-                attributes: ['url'],
-                where: {
-                  preview: true
-                },
-                limit: 1,
-              }
-            }, 
+    const { user } = req; 
 
-            { model: ReviewImage, attributes: ['id', 'url'] }, 
+    if (!user) return res.status(401).json({ message: 'Authentication required', statusCode: 401 })
+
+    let reviews = await Review.findAll({
+      where: {
+        userId: user.id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'firstName', 'lastName'],
+        },
+        {
+          model: Spot,
+          attributes: ['id', 'ownerId', 'address', 'city', 'state', 'country', 'lat', 'lng', 'name', 'price'],
+          include: [
+            {
+              model: SpotImage,
+              where: {
+                preview: true
+              },
+              attributes: ['url']
+            }
+          ]
+        },
+        {
+          model: ReviewImage,
+          attributes: ['id', 'url']
+        },
       ]
-    });
+    })
 
 
-    for(let i = 0; i < reviews.length; i++){
-        const reviewObj = reviews[i].toJSON();
-        // console.log('yeshi each review object: ', reviewObj)
 
-        const previewImgUrlObj = reviewObj.Spot.SpotImages[0];
-        // console.log('yeshi: ', previewImgUrlObj)
-        if(previewImgUrlObj) reviewObj.Spot.previewImage = previewImgUrlObj.url;
-        else reviewObj.Spot.previewImage = 'no image';
-        delete reviewObj.Spot.SpotImages;
-        reviews[i] = reviewObj;
+
+
+
+
+
+
+
+
+    // const reviews = await Review.findAll({
+    //     where: {userId: req.user.id},
+    //     include: [
+    //         { model: User, attributes: ['id', 'firstName', 'lastName'] },
+    //         { 
+    //           model: Spot, 
+    //           attributes: { exclude: ['description', 'createdAt', 'updatedAt'] },
+    //           include: {
+    //             model: SpotImage,
+    //             attributes: ['url'],
+    //             where: {
+    //               preview: true
+    //             },
+    //             // limit: 1,
+    //           }
+    //         }, 
+
+    //         { model: ReviewImage, attributes: ['id', 'url'] }, 
+    //   ]
+    // });
+
+
+    // for(let i = 0; i < reviews.length; i++){
+    //     const reviewObj = reviews[i].toJSON();
+    //     console.log('yeshi first: ', reviewObj)
+
+    //     const previewImgUrlObj = reviewObj.ReviewImages[0];
+    //     console.log('yeshi second: ', previewImgUrlObj)
+
+    //     if(previewImgUrlObj) reviewObj.Spot.previewImage = previewImgUrlObj.url;
+    //     else reviewObj.Spot.previewImage = 'no image';
+    //     delete reviewObj.Spot.SpotImages;
+    //     reviews[i] = reviewObj;
+    // }
+
+
+
+    const result = [];
+
+    for (let review of reviews) {
+      review = review.toJSON()
+
+      review.Spot.previewImage = review.Spot.SpotImages[0].url;
+      // delete review.Spot.SpotImages;
+
+      result.push(review);
     }
-    return res.json({Reviews: reviews});
+    return res.json({Reviews: result});
 
 
 
