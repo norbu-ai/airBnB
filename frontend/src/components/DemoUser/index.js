@@ -1,17 +1,19 @@
-import React from "react"
-import { useDispatch } from "react-redux"
-import { login } from "../../store/session"
-import "./DemoUser.css"
+import React from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../../store/session";
+import "./DemoUser.css";
 
 const DemoUser = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const loginDemoUser = () => {
-    return dispatch(login({
-      credential: "Demo-lition",
-      password: "password1"
-    }))
-  }
+    return dispatch(
+      login({
+        credential: "demolition",
+        password: "password1",
+      })
+    );
+  };
 
   return (
     <>
@@ -19,7 +21,7 @@ const DemoUser = () => {
         Login as Demo User
       </div>
     </>
-  )
-}
+  );
+};
 
-export default DemoUser
+export default DemoUser;
