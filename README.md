@@ -62,18 +62,4 @@ If you are logged in, and you are NOT the owner of the property, you will see th
 
 ![image](https://user-images.githubusercontent.com/105009371/208353792-a24c9fa9-db2e-462a-84bf-362438e3876b.png)
 
-## My Contact Info:
 
-### Achok Khenrap Yeshi
-
-[![Linkedin][linkedin-color]][akyeshi-linkedin]
-[![GitHub][github-color]][akyeshi-github]
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-color]: https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white
-[akyeshi-linkedin]: https://www.linkedin.com/in/akyeshi/
-[github-color]: https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white
-[akyeshi-github]: https://github.com/akyoshicode
